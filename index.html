@@ -96,7 +96,7 @@
       font-weight: 600;
       font-size: 1.05rem;
       padding: 0.25rem 0.75rem;
-      border-radius: 9999px; /* pill shape */
+      border-radius: 9999px;
       transition: background-color 0.3s ease, color 0.3s ease;
     }
     nav a:hover, nav a:focus {
@@ -155,7 +155,7 @@
       transform: translateY(-6px);
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
     }
-    /* Bounce animation on icon hover */
+
     @keyframes bounce {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-6px); }
@@ -189,215 +189,111 @@
     }
     .service-card:hover .service-overlay { opacity: 1; }
 
-    /* small adjustments for inline details */
-    .service-card ul {
-      text-align: left;
-      margin: 1rem 0;
-      padding-left: 1.15rem;
-      color: #444;
-    }
-    .service-card li { margin-bottom: 0.45rem; }
-
-    /* BADGE */
-    .badge {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      background: #007bff;
-      color: #fff;
-      font-size: 0.8rem;
-      font-weight: 600;
-      padding: 5px 10px;
-      border-radius: 20px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-    }
-
-    /* PORTFOLIO */
+    /* PORTFOLIO - Uniform cards with hover overlay */
     .portfolio-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 1.5rem;
     }
     .portfolio-item {
       position: relative;
       overflow: hidden;
-      border-radius: 10px;
-      perspective: 1000px;
-      height: 250px;
-      transition: transform 0.3s ease;
-      will-change: transform;
+      border-radius: 12px;
+      height: 300px;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background-color: #f0f0f0;
     }
     .portfolio-item img {
       width: 100%;
+      height: 100%;
+      object-fit: cover;
       transition: transform 0.4s ease;
-      pointer-events: none; /* prevent interference with tilt */
     }
-    .portfolio-item:hover img { transform: scale(1.1); }
-    .portfolio-front, .portfolio-back {
+    .portfolio-item:hover img {
+      transform: scale(1.1);
+    }
+    .portfolio-overlay {
       position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
-      backface-visibility: hidden;
-      border-radius: 0.75rem;
-      overflow: hidden;
-      transition: transform 0.6s ease;
-    }
-    .portfolio-back {
-      background: #000;
+      background: rgba(0,0,0,0.6);
+      opacity: 0;
       color: white;
       display: flex;
       flex-direction: column;
-      justify-content: flex-end;
+      justify-content: center;
+      align-items: center;
       padding: 1rem;
-      transform: rotateY(180deg);
-    }
-    .portfolio-item:hover .portfolio-front {
-      transform: rotateY(180deg);
-    }
-    .portfolio-item:hover .portfolio-back {
-      transform: rotateY(0deg);
-    }
-
-    .portfolio-text h4 { margin-bottom: 0.25rem; font-size: 1.2rem; }
-    .portfolio-text p { font-size: 0.9rem; opacity: 0.9; }
-
-    /* CONTACT */
-    .contact {
       text-align: center;
-      background: #f1f5f9;
-      border-radius: 0.5rem;
-      padding: 2rem;
+      transition: opacity 0.3s ease;
     }
-    .contact p { font-size: 1.1rem; margin-bottom: 0.5rem; }
-    .contact a { color: #0070e0; text-decoration: none; }
-    .contact a:hover { color: #004999; }
+    .portfolio-item:hover .portfolio-overlay {
+      opacity: 1;
+    }
+    .portfolio-overlay h4 {
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+    .portfolio-overlay p {
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
 
-    /* CTA */
-    .cta {
-      text-align: center;
-      padding: 3rem 2rem;
+    /* CONTACT & CTA & FOOTER remain unchanged */
+    .contact, .cta, footer { }
+    .contact p, .contact a { font-size: 1.1rem; }
+    .cta { text-align: center; padding: 3rem 2rem; background: #0070e0; color: white; border-radius: 0.5rem; margin-top: 3rem; }
+    .cta h2 { font-size: 2rem; margin-bottom: 1rem; }
+    footer { background-color: #004c99; color: white; text-align: center; padding: 2rem 1.5rem; font-size: 0.9rem; }
+    .footer-socials img { width: 30px; margin: 0 0.5rem; transition: transform 0.3s ease; }
+    .footer-socials img:hover { transform: scale(1.15); }
+
+    /* Scroll to Top */
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
       background: #0070e0;
       color: white;
-      border-radius: 0.5rem;
-      margin-top: 3rem;
+      border: none;
+      padding: 0.8rem 1rem;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: none;
+      z-index: 1000;
     }
-    .cta h2 { font-size: 2rem; margin-bottom: 1rem; }
-    .btn-primary {
-      display: inline-block;
-      padding: 0.9rem 2rem;
-      background-color: #ffe600;
-      color: #111;
-      font-weight: 600;
-      border-radius: 0.5rem;
-      text-decoration: none;
-      transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
-      user-select: none;
-      box-shadow: 0 4px 15px rgba(255, 230, 0, 0.6);
-    }
-    .btn-primary:hover, .btn-primary:focus {
-      background-color: #ffd000;
-      box-shadow: 0 6px 20px rgba(255, 221, 0, 0.8);
-      transform: translateY(-2px);
-      outline: none;
-    }
-
-    /* FOOTER */
-    footer {
-      background-color: #004c99;
-      color: white;
-      text-align: center;
-      padding: 2rem 1.5rem;
-      font-size: 0.9rem;
-    }
-    .footer-socials img {
-      width: 30px;
-      margin: 0 0.5rem;
-      transition: transform 0.3s ease;
-    }
-    .footer-socials img:hover { transform: scale(1.15); }
+    #scrollTopBtn:hover { background: #004c99; }
 
     /* MODAL */
     .modal {
       display: none;
       position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0,0,0,0.7);
-      align-items: center;
-      justify-content: center;
       z-index: 2000;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.6);
     }
     .modal-content {
-      background: #fff;
+      background-color: #fff;
+      margin: 10% auto;
       padding: 2rem;
-      border-radius: 0.75rem;
-      max-width: 500px;
-      text-align: left;
+      border-radius: 12px;
+      max-width: 600px;
       position: relative;
+      text-align: left;
     }
-    .close-btn {
+    .modal-close {
       position: absolute;
-      top: 10px; right: 10px;
+      top: 10px; right: 15px;
       font-size: 1.5rem;
+      font-weight: bold;
       cursor: pointer;
-      background: none;
-      border: none;
       color: #333;
-    }
-    .close-btn:focus {
-      outline: 2px solid #0070e0;
-    }
-
-    /* FOUNDER */
-    .founder {
-      text-align: center;
-      margin-top: 3rem;
-    }
-    .founder-content {
-      max-width: 800px;
-      margin: 2rem auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1.5rem;
-    }
-    .founder-photo {
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      object-fit: cover;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    }
-    .founder p {
-      font-size: 1.1rem;
-      line-height: 1.8;
-      text-align: center;
-    }
-
-    /* Scroll to Top Button */
-    #scrollTopBtn {
-      position: fixed;
-      bottom: 2rem;
-      right: 2rem;
-      background-color: #0070e0;
-      color: white;
-      border: none;
-      padding: 0.75rem 1rem;
-      border-radius: 50%;
-      font-size: 1.5rem;
-      cursor: pointer;
-      box-shadow: 0 4px 12px rgba(0, 112, 224, 0.6);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-      z-index: 1500;
-    }
-    #scrollTopBtn.show {
-      opacity: 1;
-      pointer-events: auto;
-    }
-    #scrollTopBtn:hover, #scrollTopBtn:focus {
-      background-color: #005bb5;
-      outline: none;
     }
   </style>
 </head>
@@ -442,62 +338,29 @@
   <section id="services" class="fade-in">
     <h2>Our Service Packages</h2>
     <div class="services">
-      <!-- Basic Security -->
       <div class="service-card" onclick="showModal('basic')" tabindex="0" role="button" aria-pressed="false">
         <img src="security.webp" class="service-icon" alt="Security Icon" />
         <h3>Basic Security</h3>
-        <ul>
-          <li>Expert cybersecurity consulting to identify risks</li>
-          <li>Malware scanning and removal</li>
-          <li>Firewall configuration and protection setup</li>
-          <li>Phishing protection and threat awareness</li>
-        </ul>
-        <p><strong>Care plans from $149/mo</strong></p>
-        <a href="https://sydtechsolutions.zohobookings.com/#/4761300000000045052" class="btn-primary" target="_blank">Book This Package</a>
+        <p>Protect your business from cyber threats</p>
+        <div class="service-overlay">Click to see full package details</div>
       </div>
-
-      <!-- On Demand IT Support -->
       <div class="service-card" onclick="showModal('on-demand')" tabindex="0" role="button" aria-pressed="false">
         <img src="support.png" class="service-icon" alt="Support Icon" />
         <h3>On Demand IT Support</h3>
-        <ul>
-          <li>Flexible, pay-as-you-go remote IT assistance</li>
-          <li>Troubleshooting for software and hardware issues</li>
-          <li>Quick response and resolution for urgent fixes</li>
-          <li>Sessions typically lasting 1–2 hours for efficiency</li>
-        </ul>
-        <p><strong>Quick Fix Flat Rate: $100</strong></p>
-        <a href="https://sydtechsolutions.zohobookings.com/#/4761300000000045052" class="btn-primary" target="_blank">Book This Package</a>
+        <p>Flexible IT help whenever you need it</p>
+        <div class="service-overlay">Click to see full package details</div>
       </div>
-
-      <!-- Full IT Support -->
       <div class="service-card" onclick="showModal('full')" tabindex="0" role="button" aria-pressed="false">
         <img src="fullIT.png" class="service-icon" alt="Full Support Icon" />
         <h3>Full IT Support</h3>
-        <ul>
-          <li>Full IT and cybersecurity consulting</li>
-          <li>Regular malware scanning and threat removal</li>
-          <li>Continuous system monitoring and configuration</li>
-          <li>Proactive troubleshooting and issue resolution</li>
-          <li>End-to-end management of your IT infrastructure</li>
-        </ul>
-        <p><strong>Managed plans from $149/mo</strong></p>
-        <a href="https://sydtechsolutions.zohobookings.com/#/4761300000000045052" class="btn-primary" target="_blank">Book This Package</a>
+        <p>Comprehensive management & monitoring</p>
+        <div class="service-overlay">Click to see full package details</div>
       </div>
-
-      <!-- Website Development (Most Popular) -->
       <div class="service-card" onclick="showModal('web')" tabindex="0" role="button" aria-pressed="false">
-        <span class="badge">Most Popular</span>
         <img src="webdev.png" class="service-icon" alt="Web Dev Icon" />
         <h3>Website Development</h3>
-        <ul>
-          <li>Custom website design tailored to your brand (up to 4 pages)</li>
-          <li>Option for ongoing monthly maintenance and updates</li>
-          <li>Minor content updates to keep your site fresh</li>
-          <li>Note: Development includes code only; hosting services are not included</li>
-        </ul>
-        <p><strong>Website Revamp $500 • Quick Fix $250</strong></p>
-        <a href="https://sydtechsolutions.zohobookings.com/#/4761300000000045052" class="btn-primary" target="_blank">Book This Package</a>
+        <p>Custom websites designed for growth</p>
+        <div class="service-overlay">Click to see full package details</div>
       </div>
     </div>
   </section>
@@ -505,71 +368,39 @@
   <section id="portfolio" class="fade-in">
     <h2>Our Work</h2>
     <div class="portfolio-grid">
-      <!-- Alma Ocean (added case study) -->
-      <div class="portfolio-item" tabindex="0">
-        <div class="portfolio-front">
-          <img src="almaO.jpg" alt="Alma Ocean Website" />
-        </div>
-        <div class="portfolio-back">
-          <img src="almaO.png" alt="Alma Ocean" />
-          <div class="portfolio-text">
-            <h4>Alma Ocean</h4>
-            <p><strong>Challenge:</strong> Site wasn’t mobile-friendly and product pages were cluttered.<br>
-               <strong>Solution:</strong> Homepage revamp, product page cleanup, and mobile optimization.<br>
-               <strong>Result:</strong> Faster load time, clearer product flow, and higher mobile engagement.</p>
-          </div>
+      <div class="portfolio-item">
+        <img src="almaO.jpg" alt="Alma Ocean Website">
+        <div class="portfolio-overlay">
+          <h4>Alma Ocean</h4>
+          <p>Homepage revamp, product page cleanup, and mobile optimization. Clear product flow and higher engagement.</p>
         </div>
       </div>
-
-      <div class="portfolio-item" tabindex="0">
-        <div class="portfolio-front">
-          <img src="aurA.png" alt="E-commerce Website" />
-        </div>
-        <div class="portfolio-back">
-          <img src="aurA.png" alt="E-commerce Website Screenshot" />
-          <div class="portfolio-text">
-            <h4>AURA - Adaptive User Reflection Assistant</h4>
-            <p>AI-powered quiz and flashcard generation, task management, and intelligent scheduling using spaced repetition. Reduced study prep time by 40%.</p>
-          </div>
+      <div class="portfolio-item">
+        <img src="aurA.png" alt="AURA Website">
+        <div class="portfolio-overlay">
+          <h4>AURA - AI Study App</h4>
+          <p>AI-powered quiz and flashcard generation. Reduced study prep time by 40%.</p>
         </div>
       </div>
-
-      <div class="portfolio-item" tabindex="0">
-        <div class="portfolio-front">
-          <img src="Bio.png" alt="Portfolio Design" />
-        </div>
-        <div class="portfolio-back">
-          <img src="Bio.png" alt="Portfolio Design Screenshot" />
-          <div class="portfolio-text">
-            <h4>Biology Database</h4>
-            <p>Online database reducing resource search time by 75%. Includes scalable architecture and advanced search for 500+ entries.</p>
-          </div>
+      <div class="portfolio-item">
+        <img src="Bio.png" alt="Biology Database">
+        <div class="portfolio-overlay">
+          <h4>Biology Database</h4>
+          <p>Online database reducing resource search time by 75%, scalable and searchable for 500+ entries.</p>
         </div>
       </div>
-
-      <div class="portfolio-item" tabindex="0">
-        <div class="portfolio-front">
-          <img src="FoxE.png" alt="Business Landing Page" />
-        </div>
-        <div class="portfolio-back">
-          <img src="FoxE.png" alt="Business Landing Page Screenshot" />
-          <div class="portfolio-text">
-            <h4>FoxEasts Website</h4>
-            <p>Campus food delivery app for 1,000+ students, featuring secure FOXID login, real-time order tracking, and personalized order history.</p>
-          </div>
+      <div class="portfolio-item">
+        <img src="FoxE.png" alt="FoxEasts Website">
+        <div class="portfolio-overlay">
+          <h4>FoxEasts Website</h4>
+          <p>Campus food delivery app for 1,000+ students, secure FOXID login, real-time order tracking, personalized order history.</p>
         </div>
       </div>
-
-      <div class="portfolio-item" tabindex="0">
-        <div class="portfolio-front">
-          <img src="LakeG.png" alt="Web Application" />
-        </div>
-        <div class="portfolio-back">
-          <img src="LakeG.png" alt="Web App Screenshot" />
-          <div class="portfolio-text">
-            <h4>Lake Grader Website</h4>
-            <p>Interactive web app visualizing freshwater lake data with maps, comparisons, and responsive design for all devices.</p>
-          </div>
+      <div class="portfolio-item">
+        <img src="LakeG.png" alt="Lake Grader Website">
+        <div class="portfolio-overlay">
+          <h4>Lake Grader</h4>
+          <p>Interactive web app visualizing freshwater lake data with maps, comparisons, and responsive design for all devices.</p>
         </div>
       </div>
     </div>
@@ -577,9 +408,7 @@
 
   <section class="cta fade-in">
     <h2>Ready to Take Your Tech to the Next Level?</h2>
-    <a href="https://sydtechsolutions.zohobookings.com/#/4761300000000045052" class="btn-primary" target="_blank" rel="noopener noreferrer">
-      Book a Free Consultation
-    </a>
+    <a href="https://sydtechsolutions.zohobookings.com/#/4761300000000045052" class="btn-primary" target="_blank">Book a Free Consultation</a>
   </section>
 
   <section id="contact" class="contact fade-in">
@@ -597,192 +426,79 @@
     </div>
   </footer>
 
-  <!-- Scroll to Top Button -->
   <button id="scrollTopBtn" aria-label="Scroll to top">&uarr;</button>
 
-  <!-- MODALS (kept in place so nothing is removed) -->
-<div id="modal-basic" class="modal">
-  <div class="modal-content">
-    <span class="close-btn" onclick="closeModal('basic')">&times;</span>
-    <h2>Basic Security</h2>
-    <ul>
-      <li>Expert cybersecurity consulting to identify risks</li>
-      <li>Malware scanning and removal</li>
-      <li>Firewall configuration and protection setup</li>
-      <li>Phishing protection and threat awareness</li>
-    </ul>
-    <p><strong>Care plans from $149/mo</strong></p>
-    <a href="https://sydtechsolutions.zohobookings.com/#/4761300000000045052" class="btn-primary" target="_blank">Book This Package</a>
+  <!-- MODALS -->
+  <div id="modal-basic" class="modal">
+    <div class="modal-content">
+      <span class="modal-close" onclick="closeModal('modal-basic')">&times;</span>
+      <h3>Basic Security Package</h3>
+      <p>Includes firewall setup, antivirus installation, and routine system monitoring for your business.</p>
+    </div>
   </div>
-</div>
-
-<div id="modal-on-demand" class="modal">
-  <div class="modal-content">
-    <span class="close-btn" onclick="closeModal('on-demand')">&times;</span>
-    <h2>On Demand IT Support</h2>
-    <ul>
-      <li>Flexible, pay-as-you-go remote IT assistance</li>
-      <li>Troubleshooting for software and hardware issues</li>
-      <li>Quick response and resolution for urgent fixes</li>
-      <li>Sessions typically lasting 1–2 hours for efficiency</li>
-    </ul>
-    <p><strong>Quick Fix service available — Flat Rate: $100</strong></p>
-    <a href="https://sydtechsolutions.zohobookings.com/#/4761300000000045052" class="btn-primary" target="_blank">Book This Package</a>
+  <div id="modal-on-demand" class="modal">
+    <div class="modal-content">
+      <span class="modal-close" onclick="closeModal('modal-on-demand')">&times;</span>
+      <h3>On Demand IT Support</h3>
+      <p>Pay-as-you-go IT support for troubleshooting, software updates, and technical questions.</p>
+    </div>
   </div>
-</div>
-
-<div id="modal-full" class="modal">
-  <div class="modal-content">
-    <span class="close-btn" onclick="closeModal('full')">&times;</span>
-    <h2>Full IT Support</h2>
-    <ul>
-      <li>Full IT and cybersecurity consulting</li>
-      <li>Regular malware scanning and threat removal</li>
-      <li>Continuous system monitoring and configuration</li>
-      <li>Proactive troubleshooting and issue resolution</li>
-      <li>End-to-end management of your IT infrastructure</li>
-    </ul>
-    <p><strong>Managed plans from $149/mo</strong></p>
-    <a href="https://sydtechsolutions.zohobookings.com/#/4761300000000045052" class="btn-primary" target="_blank">Book This Package</a>
+  <div id="modal-full" class="modal">
+    <div class="modal-content">
+      <span class="modal-close" onclick="closeModal('modal-full')">&times;</span>
+      <h3>Full IT Support</h3>
+      <p>Comprehensive management including monitoring, backups, updates, cybersecurity, and IT planning.</p>
+    </div>
   </div>
-</div>
-
-<div id="modal-web" class="modal">
-  <div class="modal-content">
-    <span class="close-btn" onclick="closeModal('web')">&times;</span>
-    <h2>Website Development</h2>
-    <ul>
-      <li>Custom website design tailored to your brand (up to 4 pages)</li>
-      <li>Option for ongoing monthly maintenance and updates</li>
-      <li>Minor content updates to keep your site fresh</li>
-      <li>Note: Development includes code only; hosting services are not included</li>
-    </ul>
-    <p><strong>Website Revamp starting at $500 • Quick Fix $250</strong></p>
-    <a href="https://sydtechsolutions.zohobookings.com/#/4761300000000045052" class="btn-primary" target="_blank">Book This Package</a>
+  <div id="modal-web" class="modal">
+    <div class="modal-content">
+      <span class="modal-close" onclick="closeModal('modal-web')">&times;</span>
+      <h3>Website Development</h3>
+      <p>Custom-built responsive websites, CMS integration, SEO optimization, and ongoing maintenance.</p>
+    </div>
   </div>
-</div>
-
 
   <script>
-    // Modal controls and accessibility trap focus & ESC close
-    function showModal(service) {
-      const modal = document.getElementById(`modal-${service}`);
-      if (!modal) return;
-      modal.style.display = 'flex';
-      modal.setAttribute('aria-hidden', 'false');
-      // Focus first focusable element in modal (close button)
-      const closeBtn = modal.querySelector('.close-btn');
-      if (closeBtn) closeBtn.focus();
-
-      // Trap focus inside modal
-      trapFocus(modal);
-    }
-
-    function closeModal(service) {
-      const modal = document.getElementById(`modal-${service}`);
-      if (!modal) return;
-      modal.style.display = 'none';
-      modal.setAttribute('aria-hidden', 'true');
-      // Return focus to the service card clicked (optional)
-    }
-
-    // Close modal on outside click
-    window.addEventListener('click', function(e) {
-      document.querySelectorAll('.modal').forEach(modal => {
-        if (e.target === modal) closeModal(modal.id.replace('modal-', ''));
-      });
-    });
-
-    // Close modal on ESC key
-    window.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') {
-        document.querySelectorAll('.modal').forEach(modal => {
-          if (modal.style.display === 'flex') closeModal(modal.id.replace('modal-', ''));
-        });
-      }
-    });
-
-    // Trap focus inside modal function
-    function trapFocus(element) {
-      const focusableElements = element.querySelectorAll('a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])');
-      if (!focusableElements.length) return;
-      const firstEl = focusableElements[0];
-      const lastEl = focusableElements[focusableElements.length - 1];
-      element.addEventListener('keydown', function(e) {
-        if (e.key === 'Tab') {
-          if (e.shiftKey) { // shift + tab
-            if (document.activeElement === firstEl) {
-              e.preventDefault();
-              lastEl.focus();
-            }
-          } else { // tab
-            if (document.activeElement === lastEl) {
-              e.preventDefault();
-              firstEl.focus();
-            }
-          }
-        }
-      });
-    }
-
-    // Scroll animations
-    const sections = document.querySelectorAll('.fade-in');
-    const options = { threshold: 0.2 };
-    const observer = new IntersectionObserver((entries) => {
+    // Fade-in scroll animation
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = { threshold: 0.2, rootMargin: "0px 0px -50px 0px" };
+    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
       });
-    }, options);
-    sections.forEach(section => observer.observe(section));
+    }, appearOptions);
+    faders.forEach(fader => { appearOnScroll.observe(fader); });
 
-    // Sticky nav background change on scroll
+    // Sticky nav background change
     const nav = document.querySelector('nav');
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 20) nav.classList.add('scrolled');
+      if (window.scrollY > 50) nav.classList.add('scrolled');
       else nav.classList.remove('scrolled');
     });
 
     // Scroll to top button
-    const scrollBtn = document.getElementById('scrollTopBtn');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 300) scrollBtn.classList.add('show');
-      else scrollBtn.classList.remove('show');
-    });
-    scrollBtn.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+    const scrollBtn = document.getElementById("scrollTopBtn");
+    window.onscroll = function() {
+      scrollBtn.style.display = (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) ? "block" : "none";
+    };
+    scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-    // Portfolio tilt effect
-    document.querySelectorAll('.portfolio-item').forEach(item => {
-      item.addEventListener('mousemove', e => {
-        const rect = item.getBoundingClientRect();
-        const x = e.clientX - rect.left; // x position within the element.
-        const y = e.clientY - rect.top;  // y position within the element.
-        const midX = rect.width / 2;
-        const midY = rect.height / 2;
-        const rotateX = ((y - midY) / midY) * 10; // max 10deg
-        const rotateY = ((x - midX) / midX) * -10;
-        item.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-      });
-      item.addEventListener('mouseleave', () => {
-        item.style.transform = `rotateX(0deg) rotateY(0deg)`;
-      });
-    });
+    // Service modals
+    function showModal(id) { document.getElementById(`modal-${id}`).style.display = "block"; }
+    function closeModal(id) { document.getElementById(id).style.display = "none"; }
+    window.onclick = function(event) {
+      if (event.target.classList.contains('modal')) { event.target.style.display = "none"; }
+    }
 
-    // Enable keyboard interaction for service cards (Enter/Space)
-    document.querySelectorAll('.service-card').forEach(card => {
+    // Keyboard accessibility for service cards
+    const serviceCards = document.querySelectorAll('.service-card');
+    serviceCards.forEach(card => {
       card.addEventListener('keydown', e => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
-          // only attempt to open modal if onclick attribute exists
-          const onclick = card.getAttribute('onclick') || '';
-          const match = onclick.match(/'(.+?)'/);
-          if (match) {
-            const service = match[1];
-            showModal(service);
-          }
+          card.click();
         }
       });
     });
