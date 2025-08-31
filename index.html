@@ -3,7 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Syd Tech Solutions</title>
+  <title>Syd Tech Solutions | IT & Cybersecurity Consulting</title>
+  <meta name="description" content="Syd Tech Solutions helps small businesses stay secure and online with Website Revamps, Quick Fixes, and IT & Cybersecurity Support." />
+  <meta name="keywords" content="IT consulting, cybersecurity, website revamp, small business IT, tech support" />
+
+  <!-- Open Graph for social sharing -->
+  <meta property="og:title" content="Syd Tech Solutions | IT & Cybersecurity Consulting" />
+  <meta property="og:description" content="Helping small businesses stay secure & online with Website Revamps, Quick Fixes, and IT & Cybersecurity Support." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://sydtechsolutions.org" />
+  <meta property="og:image" content="/stslogo.PNG" />
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -439,6 +449,22 @@
   <section id="portfolio" class="fade-in">
     <h2>Our Work</h2>
     <div class="portfolio-grid">
+      <!-- Alma Ocean (added case study) -->
+      <div class="portfolio-item" tabindex="0">
+        <div class="portfolio-front">
+          <img src="almaOcean.png" alt="Alma Ocean Website" />
+        </div>
+        <div class="portfolio-back">
+          <img src="almaOcean.png" alt="Alma Ocean Screenshot" />
+          <div class="portfolio-text">
+            <h4>Alma Ocean</h4>
+            <p><strong>Challenge:</strong> Site wasn’t mobile-friendly and product pages were cluttered.<br>
+               <strong>Solution:</strong> Homepage revamp, product page cleanup, and mobile optimization.<br>
+               <strong>Result:</strong> Faster load time, clearer product flow, and higher mobile engagement.</p>
+          </div>
+        </div>
+      </div>
+
       <div class="portfolio-item" tabindex="0">
         <div class="portfolio-front">
           <img src="aurA.png" alt="E-commerce Website" />
@@ -492,9 +518,7 @@
 
   <section class="cta fade-in">
     <h2>Ready to Take Your Tech to the Next Level?</h2>
-    <a href="https://forms.gle/rECfvsaapxnJxhnA7" class="btn-primary" target="_blank" rel="noopener noreferrer">
-      Get Started
-    </a>
+    <a href="https://sydtechsolutions.zohobookings.com/#/4761300000000045052" class="btn-primary" target="_blank">Book a Free Consultation</a>
   </section>
 
   <section id="contact" class="contact fade-in">
@@ -526,6 +550,8 @@
       <li>Firewall configuration and protection setup</li>
       <li>Phishing protection and threat awareness</li>
     </ul>
+    <p><strong>Care plans from $149/mo</strong></p>
+    <a href="https://sydtechsolutions.zohobookings.com/#/4761300000000045052" class="btn-primary" target="_blank">Book This Package</a>
   </div>
 </div>
 
@@ -539,6 +565,8 @@
       <li>Quick response and resolution for urgent fixes</li>
       <li>Sessions typically lasting 1–2 hours for efficiency</li>
     </ul>
+    <p><strong>Quick Fix service available — Flat Rate: $497</strong></p>
+    <a href="https://sydtechsolutions.zohobookings.com/#/4761300000000045052" class="btn-primary" target="_blank">Book This Package</a>
   </div>
 </div>
 
@@ -553,6 +581,8 @@
       <li>Proactive troubleshooting and issue resolution</li>
       <li>End-to-end management of your IT infrastructure</li>
     </ul>
+    <p><strong>Managed plans from $149/mo</strong></p>
+    <a href="https://sydtechsolutions.zohobookings.com/#/4761300000000045052" class="btn-primary" target="_blank">Book This Package</a>
   </div>
 </div>
 
@@ -566,18 +596,21 @@
       <li>Minor content updates to keep your site fresh</li>
       <li>Note: Development includes code only; hosting services are not included</li>
     </ul>
+    <p><strong>Website Revamp starting at $997 • Quick Fix $497</strong></p>
+    <a href="https://sydtechsolutions.zohobookings.com/#/4761300000000045052" class="btn-primary" target="_blank">Book This Package</a>
   </div>
 </div>
 
 
   <script>
-    // Modal controls and accessibility trap focus & ESC close
+    // Modal controls and accessibility trap focus &amp; ESC close
     function showModal(service) {
       const modal = document.getElementById(`modal-${service}`);
       modal.style.display = 'flex';
       modal.setAttribute('aria-hidden', 'false');
       // Focus first focusable element in modal (close button)
-      modal.querySelector('.close-btn').focus();
+      const closeBtn = modal.querySelector('.close-btn');
+      if (closeBtn) closeBtn.focus();
 
       // Trap focus inside modal
       trapFocus(modal);
@@ -609,6 +642,7 @@
     // Trap focus inside modal function
     function trapFocus(element) {
       const focusableElements = element.querySelectorAll('a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])');
+      if (!focusableElements.length) return;
       const firstEl = focusableElements[0];
       const lastEl = focusableElements[focusableElements.length - 1];
       element.addEventListener('keydown', function(e) {
