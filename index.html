@@ -189,6 +189,29 @@
     }
     .service-card:hover .service-overlay { opacity: 1; }
 
+    /* small adjustments for inline details */
+    .service-card ul {
+      text-align: left;
+      margin: 1rem 0;
+      padding-left: 1.15rem;
+      color: #444;
+    }
+    .service-card li { margin-bottom: 0.45rem; }
+
+    /* BADGE */
+    .badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: #007bff;
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 5px 10px;
+      border-radius: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+
     /* PORTFOLIO */
     .portfolio-grid {
       display: grid;
@@ -419,29 +442,62 @@
   <section id="services" class="fade-in">
     <h2>Our Service Packages</h2>
     <div class="services">
+      <!-- Basic Security -->
       <div class="service-card" onclick="showModal('basic')" tabindex="0" role="button" aria-pressed="false">
         <img src="security.webp" class="service-icon" alt="Security Icon" />
         <h3>Basic Security</h3>
-        <p>Protect your business from cyber threats</p>
-        <div class="service-overlay">Click to see full package details</div>
+        <ul>
+          <li>Expert cybersecurity consulting to identify risks</li>
+          <li>Malware scanning and removal</li>
+          <li>Firewall configuration and protection setup</li>
+          <li>Phishing protection and threat awareness</li>
+        </ul>
+        <p><strong>Care plans from $149/mo</strong></p>
+        <a href="https://sydtechsolutions.zohobookings.com/#/4761300000000045052" class="btn-primary" target="_blank">Book This Package</a>
       </div>
+
+      <!-- On Demand IT Support -->
       <div class="service-card" onclick="showModal('on-demand')" tabindex="0" role="button" aria-pressed="false">
         <img src="support.png" class="service-icon" alt="Support Icon" />
         <h3>On Demand IT Support</h3>
-        <p>Flexible IT help whenever you need it</p>
-        <div class="service-overlay">Click to see full package details</div>
+        <ul>
+          <li>Flexible, pay-as-you-go remote IT assistance</li>
+          <li>Troubleshooting for software and hardware issues</li>
+          <li>Quick response and resolution for urgent fixes</li>
+          <li>Sessions typically lasting 1–2 hours for efficiency</li>
+        </ul>
+        <p><strong>Quick Fix Flat Rate: $100</strong></p>
+        <a href="https://sydtechsolutions.zohobookings.com/#/4761300000000045052" class="btn-primary" target="_blank">Book This Package</a>
       </div>
+
+      <!-- Full IT Support -->
       <div class="service-card" onclick="showModal('full')" tabindex="0" role="button" aria-pressed="false">
         <img src="fullIT.png" class="service-icon" alt="Full Support Icon" />
         <h3>Full IT Support</h3>
-        <p>Comprehensive management & monitoring</p>
-        <div class="service-overlay">Click to see full package details</div>
+        <ul>
+          <li>Full IT and cybersecurity consulting</li>
+          <li>Regular malware scanning and threat removal</li>
+          <li>Continuous system monitoring and configuration</li>
+          <li>Proactive troubleshooting and issue resolution</li>
+          <li>End-to-end management of your IT infrastructure</li>
+        </ul>
+        <p><strong>Managed plans from $149/mo</strong></p>
+        <a href="https://sydtechsolutions.zohobookings.com/#/4761300000000045052" class="btn-primary" target="_blank">Book This Package</a>
       </div>
+
+      <!-- Website Development (Most Popular) -->
       <div class="service-card" onclick="showModal('web')" tabindex="0" role="button" aria-pressed="false">
+        <span class="badge">Most Popular</span>
         <img src="webdev.png" class="service-icon" alt="Web Dev Icon" />
         <h3>Website Development</h3>
-        <p>Custom websites designed for growth</p>
-        <div class="service-overlay">Click to see full package details</div>
+        <ul>
+          <li>Custom website design tailored to your brand (up to 4 pages)</li>
+          <li>Option for ongoing monthly maintenance and updates</li>
+          <li>Minor content updates to keep your site fresh</li>
+          <li>Note: Development includes code only; hosting services are not included</li>
+        </ul>
+        <p><strong>Website Revamp $500 • Quick Fix $250</strong></p>
+        <a href="https://sydtechsolutions.zohobookings.com/#/4761300000000045052" class="btn-primary" target="_blank">Book This Package</a>
       </div>
     </div>
   </section>
@@ -477,6 +533,7 @@
           </div>
         </div>
       </div>
+
       <div class="portfolio-item" tabindex="0">
         <div class="portfolio-front">
           <img src="Bio.png" alt="Portfolio Design" />
@@ -489,6 +546,7 @@
           </div>
         </div>
       </div>
+
       <div class="portfolio-item" tabindex="0">
         <div class="portfolio-front">
           <img src="FoxE.png" alt="Business Landing Page" />
@@ -501,6 +559,7 @@
           </div>
         </div>
       </div>
+
       <div class="portfolio-item" tabindex="0">
         <div class="portfolio-front">
           <img src="LakeG.png" alt="Web Application" />
@@ -518,7 +577,9 @@
 
   <section class="cta fade-in">
     <h2>Ready to Take Your Tech to the Next Level?</h2>
-    <a href="https://sydtechsolutions.zohobookings.com/#/4761300000000045052" class="btn-primary" target="_blank">Book a Free Consultation</a>
+    <a href="https://sydtechsolutions.zohobookings.com/#/4761300000000045052" class="btn-primary" target="_blank" rel="noopener noreferrer">
+      Book a Free Consultation
+    </a>
   </section>
 
   <section id="contact" class="contact fade-in">
@@ -539,7 +600,7 @@
   <!-- Scroll to Top Button -->
   <button id="scrollTopBtn" aria-label="Scroll to top">&uarr;</button>
 
-  <!-- MODALS -->
+  <!-- MODALS (kept in place so nothing is removed) -->
 <div id="modal-basic" class="modal">
   <div class="modal-content">
     <span class="close-btn" onclick="closeModal('basic')">&times;</span>
@@ -603,9 +664,10 @@
 
 
   <script>
-    // Modal controls and accessibility trap focus &amp; ESC close
+    // Modal controls and accessibility trap focus & ESC close
     function showModal(service) {
       const modal = document.getElementById(`modal-${service}`);
+      if (!modal) return;
       modal.style.display = 'flex';
       modal.setAttribute('aria-hidden', 'false');
       // Focus first focusable element in modal (close button)
@@ -618,6 +680,7 @@
 
     function closeModal(service) {
       const modal = document.getElementById(`modal-${service}`);
+      if (!modal) return;
       modal.style.display = 'none';
       modal.setAttribute('aria-hidden', 'true');
       // Return focus to the service card clicked (optional)
@@ -713,8 +776,13 @@
       card.addEventListener('keydown', e => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
-          const service = card.getAttribute('onclick').match(/'(.+?)'/)[1];
-          showModal(service);
+          // only attempt to open modal if onclick attribute exists
+          const onclick = card.getAttribute('onclick') || '';
+          const match = onclick.match(/'(.+?)'/);
+          if (match) {
+            const service = match[1];
+            showModal(service);
+          }
         }
       });
     });
