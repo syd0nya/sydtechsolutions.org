@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Syd Tech Solutions | Monthly Tech Packages</title>
-  <meta name="description" content="Syd Tech Solutions provides monthly IT, cybersecurity essentials, and website maintenance through simple packages. Book a free consultation." />
+  <title>Syd Tech Solutions | Monthly IT & Web Packages</title>
+  <meta name="description" content="Syd Tech Solutions provides monthly tech support, cybersecurity essentials, and website maintenance for small businesses. Black + blue premium design. Book a free consultation." />
   <meta name="keywords" content="IT support, cybersecurity, website maintenance, managed services, small business IT, tech consulting" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Syd Tech Solutions | Monthly Tech Packages" />
-  <meta property="og:description" content="Reliable IT + web support through simple monthly packages. Black + blue premium design. Book a free consultation." />
+  <meta property="og:title" content="Syd Tech Solutions | Monthly IT & Web Packages" />
+  <meta property="og:description" content="Reliable tech support, cybersecurity essentials, and website maintenance—delivered through simple monthly packages." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://sydtechsolutions.org" />
   <meta property="og:image" content="/stslogo.PNG" />
@@ -20,808 +20,1050 @@
 
   <style>
     :root{
-      --bg:#0b0b10;
-      --panel:#11121a;
-      --panel2:#0f1017;
-      --border:rgba(255,255,255,.10);
-      --text:#ffffff;
-      --muted:rgba(255,255,255,.70);
-      --muted2:rgba(255,255,255,.55);
-      --blue:#3b82f6;
-      --blue2:#1d4ed8;
-      --shadow:0 18px 60px rgba(0,0,0,.55);
-      --radius:18px;
-      --max:1100px;
+      --bg: #0b0b0f;
+      --panel: #11121a;
+      --panel-2: #0f1017;
+      --border: rgba(255,255,255,0.10);
+      --text: #ffffff;
+      --muted: rgba(255,255,255,0.70);
+      --muted-2: rgba(255,255,255,0.55);
+      --blue: #3b82f6;
+      --blue-2: #1d4ed8;
+      --shadow: 0 18px 60px rgba(0,0,0,0.55);
+      --radius: 18px;
+      --radius-sm: 14px;
+      --max: 1120px;
     }
 
     *{ box-sizing:border-box; margin:0; padding:0; }
-    html, body{ height:100%; }
+    html{ scroll-behavior:smooth; }
     body{
-      font-family:"Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background:
-        radial-gradient(900px 520px at 18% -10%, rgba(59,130,246,.18), transparent 55%),
-        radial-gradient(900px 520px at 82% -10%, rgba(29,78,216,.12), transparent 55%),
-        var(--bg);
-      color:var(--text);
-      overflow:hidden; /* IMPORTANT: no page scrolling */
+      font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(1000px 600px at 20% -10%, rgba(59,130,246,0.20), transparent 55%),
+                  radial-gradient(900px 520px at 80% 0%, rgba(29,78,216,0.16), transparent 55%),
+                  var(--bg);
+      color: var(--text);
+      line-height: 1.6;
     }
 
-    a{ color:inherit; text-decoration:none; }
-    img{ display:block; max-width:100%; }
+    a{ color: inherit; text-decoration: none; }
+    img{ max-width:100%; display:block; }
 
     /* Layout */
-    .container{ max-width:var(--max); margin:0 auto; padding:0 18px; }
-    .app{
-      height:100%;
-      display:flex;
-      flex-direction:column;
-    }
+    .container{ width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+    .section{ padding: 84px 0; }
+    .section-sm{ padding: 60px 0; }
 
     /* Top bar */
     .topbar{
-      position:sticky;
-      top:0;
-      z-index:1000;
-      backdrop-filter:saturate(180%) blur(10px);
-      background:rgba(11,11,16,.75);
-      border-bottom:1px solid rgba(255,255,255,.08);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      backdrop-filter: saturate(180%) blur(10px);
+      background: rgba(11,11,15,0.70);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
     .navwrap{
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:14px;
-      padding:14px 0;
+      padding: 14px 0;
+      gap: 16px;
     }
 
     .brand{
       display:flex;
       align-items:center;
-      gap:10px;
-      min-width:210px;
+      gap: 12px;
+      min-width: 220px;
     }
     .brand img{
-      width:38px; height:38px;
-      border-radius:12px;
-      object-fit:cover;
-      border:1px solid rgba(255,255,255,.12);
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      object-fit: cover;
+      border: 1px solid rgba(255,255,255,0.10);
     }
     .brand .name{
-      font-weight:800;
-      letter-spacing:-.02em;
-      line-height:1.1;
+      font-weight: 800;
+      letter-spacing: -0.02em;
     }
     .brand .tag{
-      font-size:12px;
-      color:var(--muted2);
-      margin-top:2px;
-      font-weight:700;
+      font-size: 12px;
+      color: var(--muted-2);
+      margin-top: 2px;
     }
 
-    .nav{
+    .navlinks{
       display:flex;
       align-items:center;
-      gap:6px;
-      flex-wrap:wrap;
-      justify-content:flex-end;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
     }
-
-    .nav a, .nav button{
-      border:1px solid transparent;
-      background:transparent;
-      color:var(--muted);
-      font-weight:700;
-      font-size:14px;
-      padding:10px 12px;
-      border-radius:999px;
-      cursor:pointer;
-      transition: background .18s ease, border .18s ease, color .18s ease, transform .18s ease;
-      font-family:inherit;
+    .navlinks a{
+      padding: 10px 12px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 14px;
+      border: 1px solid transparent;
+      transition: background .2s ease, border .2s ease, color .2s ease;
     }
-    .nav a:hover, .nav button:hover{
-      background:rgba(255,255,255,.06);
-      border-color:rgba(255,255,255,.10);
-      color:#fff;
-      transform:translateY(-1px);
-    }
-    .nav .active{
-      background:rgba(59,130,246,.16);
-      border-color:rgba(59,130,246,.40);
-      color:#fff;
+    .navlinks a:hover{
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(255,255,255,0.08);
+      color: #fff;
     }
 
     .btn{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      border-radius:999px;
-      font-weight:800;
-      padding:11px 14px;
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(255,255,255,.05);
-      color:#fff;
+      gap: 10px;
+      padding: 12px 16px;
+      border-radius: 999px;
+      font-weight: 700;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.05);
+      color: #fff;
+      transition: transform .2s ease, background .2s ease, border .2s ease;
       user-select:none;
       cursor:pointer;
-      transition: transform .18s ease, background .18s ease, border .18s ease;
-      font-size:14px;
     }
-    .btn:hover{ transform:translateY(-1px); background:rgba(255,255,255,.08); border-color:rgba(255,255,255,.18); }
-    .btn:focus{ outline:2px solid rgba(59,130,246,.55); outline-offset:2px; }
+    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.18); }
+    .btn:focus{ outline: 2px solid rgba(59,130,246,0.55); outline-offset: 2px; }
 
     .btn-primary{
-      background:linear-gradient(135deg, var(--blue), var(--blue2));
-      border-color:rgba(59,130,246,.55);
-      box-shadow:0 10px 30px rgba(59,130,246,.22);
+      background: linear-gradient(135deg, var(--blue), var(--blue-2));
+      border: 1px solid rgba(59,130,246,0.55);
+      box-shadow: 0 10px 30px rgba(59,130,246,0.20);
     }
-    .btn-primary:hover{
-      background:linear-gradient(135deg, #4b8cf9, #1e40af);
-      border-color:rgba(59,130,246,.70);
+    .btn-primary:hover{ background: linear-gradient(135deg, #4b8cf9, #1e40af); border-color: rgba(59,130,246,0.75); }
+
+    .btn-ghost{
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.16);
+      color: #fff;
     }
 
-    /* Pages container */
-    .pages{
-      flex:1;
-      display:block;
-      position:relative;
-    }
-    .page{
-      position:absolute;
-      inset:0;
+    /* Mobile nav */
+    .menuBtn{ display:none; }
+    .mobilePanel{
       display:none;
-      padding:40px 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 10px 0 14px;
     }
-    .page.active{ display:block; }
-
-    /* Centered page shell (no scrolling, keep content concise) */
-    .shell{
-      height:100%;
-      display:flex;
-      align-items:center;
+    .mobilePanel a{
+      display:block;
+      padding: 12px 12px;
+      border-radius: 12px;
+      color: var(--muted);
+      font-weight: 700;
     }
+    .mobilePanel a:hover{ background: rgba(255,255,255,0.06); color:#fff; }
 
-    /* Card panels */
-    .panel{
-      width:100%;
-      border-radius:var(--radius);
-      border:1px solid rgba(255,255,255,.10);
-      background:
-        linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
-      box-shadow:0 18px 60px rgba(0,0,0,.35);
-      padding:26px;
+    /* Hero */
+    .hero{
+      padding: 70px 0 40px;
     }
-
-    /* Home */
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 28px;
+      align-items: center;
+    }
     .kicker{
       display:inline-flex;
+      gap: 10px;
       align-items:center;
-      gap:10px;
-      padding:8px 12px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.04);
-      color:var(--muted);
-      font-weight:800;
-      font-size:13px;
-      width:fit-content;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.04);
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 13px;
+      width: fit-content;
     }
-    .dot{
-      width:8px; height:8px;
-      border-radius:999px;
-      background:var(--blue);
-      box-shadow:0 0 0 6px rgba(59,130,246,.16);
+    .kicker .dot{
+      width: 8px; height: 8px; border-radius: 999px;
+      background: var(--blue);
+      box-shadow: 0 0 0 6px rgba(59,130,246,0.18);
     }
+
     h1{
-      margin-top:14px;
-      font-size:clamp(34px, 4.2vw, 56px);
-      line-height:1.02;
-      letter-spacing:-.04em;
-      font-weight:800;
+      margin-top: 14px;
+      font-size: clamp(34px, 4.2vw, 54px);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      font-weight: 800;
     }
-    .sub{
-      margin-top:12px;
-      max-width:62ch;
-      color:var(--muted);
-      font-size:16px;
-      font-weight:600;
+    .subhead{
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 56ch;
     }
-    .actions{
-      margin-top:18px;
+    .hero-actions{
+      margin-top: 22px;
       display:flex;
-      gap:12px;
-      flex-wrap:wrap;
+      gap: 12px;
+      flex-wrap: wrap;
       align-items:center;
     }
-    .miniRow{
-      margin-top:18px;
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      color:var(--muted2);
-      font-weight:700;
-      font-size:13px;
-    }
-    .miniPill{
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.03);
-      border-radius:999px;
-      padding:9px 12px;
-    }
 
-    /* Titles */
-    .title{
-      font-size:28px;
-      font-weight:800;
-      letter-spacing:-.03em;
-      line-height:1.1;
-    }
-    .desc{
-      margin-top:10px;
-      color:var(--muted);
-      font-weight:600;
-      font-size:14px;
-      max-width:80ch;
-    }
-
-    /* Grids */
-    .grid3{
-      margin-top:18px;
+    .trust{
+      margin-top: 26px;
       display:grid;
-      grid-template-columns:repeat(3, 1fr);
-      gap:14px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
     }
-    .card{
-      border-radius:16px;
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.03);
-      padding:18px;
-      position:relative;
-      overflow:hidden;
+    .trust .pill{
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.03);
+      border-radius: 999px;
+      padding: 10px 12px;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 13px;
+      text-align:center;
     }
-    .card.popular{
-      border-color:rgba(59,130,246,.55);
-      background:radial-gradient(600px 260px at 20% 0%, rgba(59,130,246,.22), transparent 55%),
-                 rgba(255,255,255,.03);
+
+    .hero-card{
+      border-radius: var(--radius);
+      border: 1px solid rgba(59,130,246,0.22);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03)),
+        radial-gradient(600px 320px at 30% 0%, rgba(59,130,246,0.22), transparent 55%),
+        var(--panel);
+      box-shadow: var(--shadow);
+      padding: 18px;
     }
-    .tagPopular{
-      position:absolute;
-      top:12px;
-      right:12px;
-      background:rgba(59,130,246,.18);
-      border:1px solid rgba(59,130,246,.50);
-      font-size:12px;
-      font-weight:900;
-      padding:8px 10px;
-      border-radius:999px;
-      text-transform:uppercase;
-      letter-spacing:.02em;
+    .hero-card .mini{
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 13px;
     }
-    .card h3{
-      font-size:18px;
-      font-weight:900;
-      letter-spacing:-.02em;
-      margin-top:4px;
+    .hero-card .big{
+      margin-top: 10px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      font-size: 20px;
     }
-    .small{
-      margin-top:6px;
-      color:var(--muted);
-      font-weight:600;
-      font-size:13px;
-    }
-    .price{
-      margin-top:10px;
-      display:flex;
-      align-items:baseline;
-      gap:8px;
-    }
-    .price strong{
-      font-size:22px;
-      font-weight:900;
-      letter-spacing:-.02em;
-    }
-    .price span{
-      color:var(--muted2);
-      font-weight:800;
-      font-size:12px;
-    }
-    .list{
-      margin-top:10px;
+    .hero-card .list{
+      margin-top: 12px;
       display:flex;
       flex-direction:column;
-      gap:8px;
-      color:var(--muted);
-      font-weight:700;
-      font-size:13px;
+      gap: 10px;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 14px;
     }
-    .li{
+    .check{
       display:flex;
-      gap:10px;
+      gap: 10px;
       align-items:flex-start;
     }
-    .li i{
-      width:18px; height:18px; flex:0 0 18px;
-      border-radius:6px;
-      background:rgba(59,130,246,.16);
-      border:1px solid rgba(59,130,246,.35);
-      position:relative;
-      margin-top:2px;
+    .check i{
+      width: 18px; height: 18px; flex: 0 0 18px;
+      border-radius: 6px;
+      background: rgba(59,130,246,0.18);
+      border: 1px solid rgba(59,130,246,0.35);
+      margin-top: 2px;
+      position: relative;
     }
-    .li i:after{
+    .check i:after{
       content:"";
       position:absolute;
-      left:5px; top:3px;
-      width:6px; height:10px;
-      border:solid rgba(255,255,255,.92);
-      border-width:0 2px 2px 0;
-      transform:rotate(45deg);
-    }
-    .cardActions{
-      margin-top:14px;
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
+      left: 5px;
+      top: 3px;
+      width: 6px;
+      height: 10px;
+      border: solid rgba(255,255,255,0.92);
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
     }
 
-    /* Work cards (compact) */
-    .workGrid{
-      margin-top:18px;
+    /* Headings */
+    .h2{
+      font-size: 32px;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      font-weight: 800;
+      text-align:center;
+    }
+    .p-center{
+      margin: 12px auto 0;
+      text-align:center;
+      color: var(--muted);
+      max-width: 72ch;
+    }
+
+    /* Packages */
+    .grid-3{
+      margin-top: 34px;
       display:grid;
-      grid-template-columns:repeat(3, 1fr);
-      gap:14px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
     }
-    .workItem{
-      border-radius:16px;
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.03);
+    .card{
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,0.10);
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
+      padding: 22px;
+      box-shadow: 0 18px 60px rgba(0,0,0,0.28);
+      position: relative;
       overflow:hidden;
-      cursor:pointer;
-      transition: transform .18s ease, border .18s ease, background .18s ease;
+      min-height: 320px;
     }
-    .workItem:hover{
-      transform:translateY(-2px);
-      border-color:rgba(59,130,246,.35);
-      background:rgba(255,255,255,.05);
+    .card:before{
+      content:"";
+      position:absolute;
+      inset: -2px;
+      border-radius: var(--radius);
+      background: radial-gradient(500px 240px at 20% 0%, rgba(59,130,246,0.20), transparent 55%);
+      opacity: 0.7;
+      pointer-events:none;
     }
-    .thumb{
-      height:140px;
-      background:rgba(0,0,0,.25);
-    }
-    .thumb img{
-      width:100%; height:100%;
-      object-fit:cover;
-    }
-    .workBody{
-      padding:14px;
-    }
-    .workBody strong{
-      font-weight:900;
-      letter-spacing:-.02em;
-      display:block;
-    }
-    .workBody p{
-      margin-top:6px;
-      color:var(--muted);
-      font-weight:600;
-      font-size:13px;
+    .card > *{ position: relative; z-index:1; }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      color: var(--muted);
+      background: rgba(255,255,255,0.04);
+      width: fit-content;
     }
 
-    /* Contact */
-    .contactRow{
-      margin-top:16px;
+    .card h3{
+      margin-top: 12px;
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+    .card .for{
+      margin-top: 8px;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .price{
+      margin-top: 14px;
       display:flex;
-      gap:12px;
-      flex-wrap:wrap;
+      align-items: baseline;
+      gap: 8px;
+    }
+    .price strong{
+      font-size: 28px;
+      letter-spacing: -0.02em;
+    }
+    .price span{
+      color: var(--muted-2);
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .bullets{
+      margin-top: 14px;
+      display:flex;
+      flex-direction:column;
+      gap: 10px;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .card .actions{
+      margin-top: 18px;
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .card.popular{
+      border: 1px solid rgba(59,130,246,0.55);
+      background:
+        radial-gradient(600px 340px at 30% 0%, rgba(59,130,246,0.26), transparent 55%),
+        linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03));
+      transform: translateY(-6px);
+    }
+    .popularTag{
+      position:absolute;
+      top: 14px;
+      right: 14px;
+      background: rgba(59,130,246,0.20);
+      border: 1px solid rgba(59,130,246,0.55);
+      color:#fff;
+      font-weight: 900;
+      font-size: 12px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    /* Work */
+    .work-grid{
+      margin-top: 30px;
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .work-item{
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.03);
+      overflow:hidden;
+      cursor: pointer;
+      transition: transform .18s ease, border .18s ease, background .18s ease;
+      min-height: 260px;
+      display:flex;
+      flex-direction:column;
+    }
+    .work-item:hover{
+      transform: translateY(-4px);
+      border-color: rgba(59,130,246,0.35);
+      background: rgba(255,255,255,0.05);
+    }
+    .work-thumb{
+      height: 160px;
+      overflow:hidden;
+      background: rgba(0,0,0,0.25);
+    }
+    .work-thumb img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.02);
+    }
+    .work-body{
+      padding: 14px 14px 16px;
+    }
+    .work-body h4{
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      font-size: 16px;
+    }
+    .work-body p{
+      margin-top: 6px;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 13px;
+    }
+
+    /* About / Founder */
+    .two{
+      margin-top: 26px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      align-items: start;
+    }
+    .panel{
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.03);
+      padding: 22px;
+    }
+    .panel h3{
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+    .panel p{
+      margin-top: 10px;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .miniList{
+      margin-top: 12px;
+      display:flex;
+      flex-direction:column;
+      gap: 10px;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .founderCard{
+      display:flex;
+      gap: 14px;
       align-items:center;
     }
-    .linkPill{
+    .founderCard img{
+      width: 78px;
+      height: 78px;
+      border-radius: 18px;
+      object-fit: cover;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(0,0,0,0.25);
+    }
+    .founderCard .meta{
+      display:flex;
+      flex-direction:column;
+      gap: 2px;
+    }
+    .founderCard .meta strong{
+      font-weight: 900;
+      letter-spacing: -0.02em;
+    }
+    .founderCard .meta span{
+      color: var(--muted-2);
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    /* Contact + Footer */
+    .contactBox{
+      margin-top: 26px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,0.10);
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
+      padding: 22px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .contactBox .left p{
+      color: var(--muted);
+      font-weight: 600;
+      margin-top: 6px;
+      font-size: 14px;
+    }
+    .contactLinks{
+      display:flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items:center;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .contactLinks a{
       display:inline-flex;
-      gap:8px;
+      gap: 8px;
       align-items:center;
-      padding:10px 12px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.03);
-      color:var(--muted);
-      font-weight:800;
-      font-size:13px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.03);
     }
-    .linkPill:hover{
-      border-color:rgba(59,130,246,.35);
-      background:rgba(255,255,255,.06);
+    .contactLinks a:hover{
+      border-color: rgba(59,130,246,0.35);
+      background: rgba(255,255,255,0.06);
       color:#fff;
     }
 
-    /* Footer */
     footer{
-      border-top:1px solid rgba(255,255,255,.08);
-      background:rgba(0,0,0,.12);
-      color:var(--muted2);
-      padding:14px 0;
-      font-weight:700;
-      font-size:13px;
+      padding: 34px 0 50px;
+      color: var(--muted-2);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      background: rgba(0,0,0,0.10);
+      margin-top: 40px;
     }
     .foot{
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:10px;
-      flex-wrap:wrap;
+      gap: 12px;
+      flex-wrap: wrap;
     }
     .social img{
-      width:26px; height:26px;
-      opacity:.9;
+      width: 28px;
+      height: 28px;
+      opacity: 0.9;
       transition: transform .18s ease, opacity .18s ease;
     }
-    .social img:hover{ transform:translateY(-2px); opacity:1; }
+    .social img:hover{ transform: translateY(-2px); opacity: 1; }
 
     /* Modal */
     .modal{
       display:none;
       position:fixed;
-      inset:0;
-      background:rgba(0,0,0,.75);
+      inset: 0;
+      background: rgba(0,0,0,0.70);
       align-items:center;
       justify-content:center;
-      padding:18px;
-      z-index:2000;
+      padding: 18px;
+      z-index: 2000;
     }
     .modal[aria-hidden="false"]{ display:flex; }
-    .modalCard{
-      width:min(760px, 100%);
-      border-radius:var(--radius);
-      border:1px solid rgba(255,255,255,.12);
-      background:linear-gradient(180deg, rgba(17,18,26,.98), rgba(15,16,23,.98));
-      box-shadow:var(--shadow);
-      padding:20px;
+    .modalContent{
+      width: min(760px, 100%);
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,0.12);
+      background: linear-gradient(180deg, rgba(17,18,26,0.98), rgba(15,16,23,0.98));
+      box-shadow: var(--shadow);
+      padding: 22px;
       position:relative;
     }
     .modalTop{
       display:flex;
       align-items:flex-start;
       justify-content:space-between;
-      gap:12px;
+      gap: 14px;
     }
     .modalTop h3{
-      font-size:18px;
-      font-weight:900;
-      letter-spacing:-.02em;
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
     }
     .closeBtn{
-      border:1px solid rgba(255,255,255,.16);
-      background:rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.05);
       color:#fff;
-      border-radius:12px;
-      padding:10px 12px;
+      border-radius: 12px;
+      padding: 10px 12px;
       cursor:pointer;
-      font-weight:900;
+      font-weight: 900;
     }
-    .closeBtn:hover{ background:rgba(255,255,255,.08); }
+    .closeBtn:hover{ background: rgba(255,255,255,0.08); }
+
     .modalBody{
-      margin-top:10px;
-      color:var(--muted);
-      font-weight:650;
-      font-size:14px;
+      margin-top: 12px;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 14px;
     }
-    .divider{
-      margin-top:14px;
-      border-top:1px solid rgba(255,255,255,.10);
+    .modalList{
+      margin-top: 12px;
+      display:flex;
+      flex-direction:column;
+      gap: 10px;
     }
 
-    /* Responsive */
-    @media (max-width: 980px){
-      .grid3{ grid-template-columns:1fr; }
-      .workGrid{ grid-template-columns:1fr; }
-      .brand{ min-width:auto; }
+    /* Utilities */
+    .divider{
+      margin-top: 18px;
+      border-top: 1px solid rgba(255,255,255,0.10);
     }
+
+    /* Scroll to top */
+    #scrollTopBtn{
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      width: 46px;
+      height: 46px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.06);
+      color: #fff;
+      cursor:pointer;
+      opacity: 0;
+      pointer-events:none;
+      transition: opacity .2s ease, transform .2s ease, background .2s ease;
+      z-index: 1500;
+    }
+    #scrollTopBtn.show{ opacity: 1; pointer-events:auto; }
+    #scrollTopBtn:hover{ transform: translateY(-2px); background: rgba(255,255,255,0.10); }
+
+    /* Responsive */
+    @media (max-width: 920px){
+      .hero-grid{ grid-template-columns: 1fr; }
+      .trust{ grid-template-columns: 1fr; }
+      .grid-3{ grid-template-columns: 1fr; }
+      .work-grid{ grid-template-columns: 1fr; }
+      .two{ grid-template-columns: 1fr; }
+      .brand{ min-width: unset; }
+      .navlinks{ display:none; }
+      .menuBtn{ display:inline-flex; }
+      .mobilePanel.show{ display:block; }
+    }
+
     @media (prefers-reduced-motion: reduce){
-      *{ transition:none !important; }
+      html{ scroll-behavior: auto; }
+      *{ transition: none !important; animation: none !important; }
     }
   </style>
 </head>
 
 <body>
-  <div class="app">
-    <!-- TOP BAR -->
-    <div class="topbar">
-      <div class="container">
-        <div class="navwrap">
-          <a class="brand" href="#" data-page="home" aria-label="Go to Home">
-            <img src="stslogo.PNG" alt="Syd Tech Solutions logo" />
-            <div>
-              <div class="name">Syd Tech Solutions</div>
-              <div class="tag">Monthly Packages</div>
-            </div>
-          </a>
-
-          <div class="nav" role="navigation" aria-label="Primary navigation">
-            <button class="navlink active" type="button" data-page="home">Home</button>
-            <button class="navlink" type="button" data-page="packages">Packages</button>
-            <button class="navlink" type="button" data-page="work">Work</button>
-            <button class="navlink" type="button" data-page="about">About</button>
-            <button class="navlink" type="button" data-page="contact">Contact</button>
-            <a class="btn btn-primary" href="https://sydtechsolutions.zohobookings.com/#/4761300000000045052" target="_blank" rel="noopener noreferrer">Book a Call</a>
+  <!-- Sticky Top Bar -->
+  <div class="topbar">
+    <div class="container">
+      <div class="navwrap">
+        <a class="brand" href="#home" aria-label="Go to home">
+          <img src="stslogo.PNG" alt="Syd Tech Solutions logo" />
+          <div>
+            <div class="name">Syd Tech Solutions</div>
+            <div class="tag">Monthly Tech Packages</div>
           </div>
+        </a>
+
+        <nav class="navlinks" aria-label="Primary navigation">
+          <a href="#home">Home</a>
+          <a href="#packages">Packages</a>
+          <a href="#work">Work</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+          <a class="btn btn-primary" href="https://sydtechsolutions.zohobookings.com/#/4761300000000045052" target="_blank" rel="noopener noreferrer">Book a Call</a>
+        </nav>
+
+        <button class="btn menuBtn" id="menuBtn" aria-expanded="false" aria-controls="mobilePanel">Menu</button>
+      </div>
+
+      <div class="mobilePanel" id="mobilePanel">
+        <a href="#home">Home</a>
+        <a href="#packages">Packages</a>
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a class="btn btn-primary" style="margin-top:10px;" href="https://sydtechsolutions.zohobookings.com/#/4761300000000045052" target="_blank" rel="noopener noreferrer">Book a Call</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <header id="home" class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <div class="kicker"><span class="dot"></span> IT + Web Support for Small Businesses</div>
+          <h1>Reliable tech support.<br/>One monthly package.<br/><span style="color:rgba(59,130,246,0.95);">Zero stress.</span></h1>
+          <p class="subhead">
+            Syd Tech Solutions provides ongoing website maintenance, cybersecurity essentials, and IT support—built for businesses that want coverage, not one-off fixes.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#packages">View Packages</a>
+            <a class="btn btn-ghost" href="https://sydtechsolutions.zohobookings.com/#/4761300000000045052" target="_blank" rel="noopener noreferrer">Book a Free Consultation</a>
+          </div>
+
+          <div class="trust" aria-label="Trust highlights">
+            <div class="pill">Security-first mindset</div>
+            <div class="pill">Small business focused</div>
+            <div class="pill">Clear monthly coverage</div>
+          </div>
+        </div>
+
+        <div class="hero-card" aria-label="What you get">
+          <div class="mini">What’s included in every package</div>
+          <div class="big">Support that actually feels managed</div>
+          <div class="list">
+            <div class="check"><i aria-hidden="true"></i><span>Ongoing maintenance & updates</span></div>
+            <div class="check"><i aria-hidden="true"></i><span>Security checks & best practices</span></div>
+            <div class="check"><i aria-hidden="true"></i><span>Fast help when issues come up</span></div>
+            <div class="check"><i aria-hidden="true"></i><span>Monthly health summary</span></div>
+          </div>
+          <div class="divider"></div>
+          <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="btn btn-primary" href="#packages">Compare Packages</a>
+            <a class="btn" href="#contact">Contact</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- PACKAGES -->
+  <section id="packages" class="section">
+    <div class="container">
+      <h2 class="h2">Monthly Packages</h2>
+      <p class="p-center">Choose a plan that matches your business needs. No support-hour tracking—just clear coverage, priority, and peace of mind.</p>
+
+      <div class="grid-3">
+        <!-- Starter -->
+        <article class="card">
+          <div class="badge">Starter</div>
+          <h3>Essential Coverage</h3>
+          <p class="for">For small businesses that want stability, security, and a polished online presence.</p>
+          <div class="price"><strong>$299</strong><span>/ month • starting</span></div>
+
+          <div class="bullets">
+            <div class="check"><i aria-hidden="true"></i><span>Website maintenance & minor updates</span></div>
+            <div class="check"><i aria-hidden="true"></i><span>Security essentials (malware scans, baseline hardening)</span></div>
+            <div class="check"><i aria-hidden="true"></i><span>Performance & uptime monitoring</span></div>
+            <div class="check"><i aria-hidden="true"></i><span>Email support (business hours)</span></div>
+            <div class="check"><i aria-hidden="true"></i><span>Monthly health summary</span></div>
+          </div>
+
+          <div class="actions">
+            <a class="btn btn-primary" href="https://sydtechsolutions.zohobookings.com/#/4761300000000045052" target="_blank" rel="noopener noreferrer">Book Starter</a>
+            <button class="btn" type="button" data-modal="starter">Details</button>
+          </div>
+        </article>
+
+        <!-- Pro -->
+        <article class="card popular">
+          <div class="popularTag">Most Popular</div>
+          <div class="badge">Pro</div>
+          <h3>Growth Support</h3>
+          <p class="for">For growing businesses that need faster response and ongoing technical support.</p>
+          <div class="price"><strong>$499</strong><span>/ month • starting</span></div>
+
+          <div class="bullets">
+            <div class="check"><i aria-hidden="true"></i><span>Everything in Starter</span></div>
+            <div class="check"><i aria-hidden="true"></i><span>Priority support & faster response</span></div>
+            <div class="check"><i aria-hidden="true"></i><span>Ongoing IT support & troubleshooting</span></div>
+            <div class="check"><i aria-hidden="true"></i><span>Enhanced security practices & account protection</span></div>
+            <div class="check"><i aria-hidden="true"></i><span>Regular website updates & content changes</span></div>
+            <div class="check"><i aria-hidden="true"></i><span>Quarterly system & website health review</span></div>
+          </div>
+
+          <div class="actions">
+            <a class="btn btn-primary" href="https://sydtechsolutions.zohobookings.com/#/4761300000000045052" target="_blank" rel="noopener noreferrer">Book Pro</a>
+            <button class="btn" type="button" data-modal="pro">Details</button>
+          </div>
+        </article>
+
+        <!-- Premium -->
+        <article class="card">
+          <div class="badge">Premium</div>
+          <h3>Fully Managed</h3>
+          <p class="for">For businesses that want a dedicated tech partner—proactive support, not reactive fixes.</p>
+          <div class="price"><strong>$899</strong><span>/ month • starting</span></div>
+
+          <div class="bullets">
+            <div class="check"><i aria-hidden="true"></i><span>Everything in Pro</span></div>
+            <div class="check"><i aria-hidden="true"></i><span>Highest-priority support</span></div>
+            <div class="check"><i aria-hidden="true"></i><span>Proactive monitoring & issue prevention</span></div>
+            <div class="check"><i aria-hidden="true"></i><span>Advanced security oversight</span></div>
+            <div class="check"><i aria-hidden="true"></i><span>Strategic planning & technical guidance</span></div>
+            <div class="check"><i aria-hidden="true"></i><span>White-glove onboarding & documentation</span></div>
+          </div>
+
+          <div class="actions">
+            <a class="btn btn-primary" href="https://sydtechsolutions.zohobookings.com/#/4761300000000045052" target="_blank" rel="noopener noreferrer">Book Premium</a>
+            <button class="btn" type="button" data-modal="premium">Details</button>
+          </div>
+        </article>
+      </div>
+
+      <div class="section-sm">
+        <h3 class="h2" style="font-size:26px;">One-Time Services</h3>
+        <p class="p-center">Still available for non-retainer clients. Retainers are recommended for ongoing coverage.</p>
+
+        <div class="grid-3" style="margin-top:18px;">
+          <article class="card" style="min-height:auto;">
+            <div class="badge">Website</div>
+            <h3>Website Revamp</h3>
+            <p class="for">Up to 4 pages. Modern design, improved structure, and performance cleanup.</p>
+            <div class="price"><strong>$1,200+</strong><span>one-time</span></div>
+          </article>
+          <article class="card" style="min-height:auto;">
+            <div class="badge">Website</div>
+            <h3>Website Quick Fix</h3>
+            <p class="for">Targeted fixes for layout issues, broken sections, or urgent updates.</p>
+            <div class="price"><strong>$300+</strong><span>one-time</span></div>
+          </article>
+          <article class="card" style="min-height:auto;">
+            <div class="badge">Security</div>
+            <h3>Cybersecurity Assessment</h3>
+            <p class="for">Risk review + recommendations to strengthen accounts, devices, and workflows.</p>
+            <div class="price"><strong>$350–$650</strong><span>one-time</span></div>
+          </article>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section id="work" class="section">
+    <div class="container">
+      <h2 class="h2">Selected Work</h2>
+      <p class="p-center">A few projects that show how we improve performance, clarity, and experience.</p>
+
+      <div class="work-grid">
+        <div class="work-item" role="button" tabindex="0" data-work="alma">
+          <div class="work-thumb"><img src="almaO.jpg" alt="Alma Ocean preview" /></div>
+          <div class="work-body">
+            <h4>Alma Ocean</h4>
+            <p>Homepage + product page cleanup + mobile optimization.</p>
+          </div>
+        </div>
+
+        <div class="work-item" role="button" tabindex="0" data-work="aura">
+          <div class="work-thumb"><img src="aurA.png" alt="AURA project preview" /></div>
+          <div class="work-body">
+            <h4>AURA – Adaptive User Reflection Assistant</h4>
+            <p>AI-powered study tools: quizzes, flashcards, scheduling.</p>
+          </div>
+        </div>
+
+        <div class="work-item" role="button" tabindex="0" data-work="lake">
+          <div class="work-thumb"><img src="LakeG.png" alt="Lake Grader preview" /></div>
+          <div class="work-body">
+            <h4>Lake Grader Website</h4>
+            <p>Interactive data visualization with responsive design.</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="p-center" style="margin-top:18px; color: var(--muted-2);">
+        Want more examples? Book a call and I’ll walk you through relevant case studies.
+      </p>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div class="container">
+      <h2 class="h2">About Syd Tech Solutions</h2>
+      <p class="p-center">
+        We help small businesses stay secure and online with practical, reliable tech support—without the complexity.
+      </p>
+
+      <div class="two">
+        <div class="panel">
+          <h3>What we do</h3>
+          <p>
+            We combine IT support, cybersecurity essentials, and website maintenance into simple monthly packages.
+            The goal is to prevent problems, fix issues quickly, and keep your tech running smoothly.
+          </p>
+          <div class="miniList">
+            <div class="check"><i aria-hidden="true"></i><span>Security-first support</span></div>
+            <div class="check"><i aria-hidden="true"></i><span>Clear monthly coverage</span></div>
+            <div class="check"><i aria-hidden="true"></i><span>Practical solutions for real businesses</span></div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3>Meet the Founder</h3>
+          <div class="founderCard" style="margin-top:12px;">
+            <img src="syd_hs.JPG" alt="Sydonya Miller" />
+            <div class="meta">
+              <strong>Sydonya Miller</strong>
+              <span>Founder • Computer Science (Rollins College)</span>
+              <span>IT • Cybersecurity • Web Development</span>
+            </div>
+          </div>
+          <p>
+            Sydonya brings a client-focused approach backed by hands-on technical experience. The mission is simple:
+            make technology secure, scalable, and easy to manage—so business owners can focus on growth.
+          </p>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- PAGES (NO SCROLL) -->
-    <main class="pages">
-      <!-- HOME -->
-      <section class="page active" id="page-home" aria-label="Home page">
-        <div class="container shell">
-          <div class="panel">
-            <div class="kicker"><span class="dot"></span> IT + Web Support for Small Businesses</div>
+  <!-- CONTACT -->
+  <section id="contact" class="section">
+    <div class="container">
+      <h2 class="h2">Contact</h2>
+      <p class="p-center">Ready to get support that feels managed? Reach out or book a free consultation.</p>
 
-            <h1>
-              Reliable tech support.<br />
-              Simple monthly packages.
-            </h1>
-
-            <p class="sub">
-              Ongoing website maintenance, cybersecurity essentials, and IT support—built for businesses that want coverage, not one-off fixes.
-            </p>
-
-            <div class="actions">
-              <button class="btn btn-primary" type="button" data-page="packages">View Packages</button>
-              <a class="btn" href="https://sydtechsolutions.zohobookings.com/#/4761300000000045052" target="_blank" rel="noopener noreferrer">Book Free Consultation</a>
-            </div>
-
-            <div class="miniRow" aria-label="Highlights">
-              <span class="miniPill">Black + blue premium support</span>
-              <span class="miniPill">Security-first</span>
-              <span class="miniPill">Small business focused</span>
-            </div>
-          </div>
+      <div class="contactBox">
+        <div class="left">
+          <div style="font-weight:900; font-size:18px; letter-spacing:-0.02em;">Syd Tech Solutions</div>
+          <p>Email: <a href="mailto:info@sydtechsolutions.org" style="color:rgba(59,130,246,0.95); font-weight:800;">info@sydtechsolutions.org</a></p>
+          <p>Phone: <a href="tel:+14075132190" style="color:rgba(59,130,246,0.95); font-weight:800;">(407) 513-2190</a></p>
         </div>
-      </section>
 
-      <!-- PACKAGES -->
-      <section class="page" id="page-packages" aria-label="Packages page">
-        <div class="container shell">
-          <div class="panel">
-            <div class="title">Packages</div>
-            <div class="desc">
-              Retainer-style monthly coverage. No support-hour tracking—just clear support, priority, and peace of mind.
-            </div>
-
-            <div class="grid3">
-              <!-- Starter -->
-              <article class="card">
-                <h3>Starter</h3>
-                <div class="small">Essential Coverage</div>
-                <div class="price"><strong>$299</strong><span>/ month • starting</span></div>
-
-                <div class="list">
-                  <div class="li"><i aria-hidden="true"></i><span>Website maintenance & minor updates</span></div>
-                  <div class="li"><i aria-hidden="true"></i><span>Security essentials (malware scans, baseline hardening)</span></div>
-                  <div class="li"><i aria-hidden="true"></i><span>Performance & uptime monitoring</span></div>
-                  <div class="li"><i aria-hidden="true"></i><span>Email support (business hours)</span></div>
-                </div>
-
-                <div class="cardActions">
-                  <a class="btn btn-primary" href="https://sydtechsolutions.zohobookings.com/#/4761300000000045052" target="_blank" rel="noopener noreferrer">Book Starter</a>
-                  <button class="btn" type="button" data-modal="starter">Details</button>
-                </div>
-              </article>
-
-              <!-- Pro -->
-              <article class="card popular">
-                <div class="tagPopular">Most Popular</div>
-                <h3>Pro</h3>
-                <div class="small">Growth Support</div>
-                <div class="price"><strong>$499</strong><span>/ month • starting</span></div>
-
-                <div class="list">
-                  <div class="li"><i aria-hidden="true"></i><span>Everything in Starter</span></div>
-                  <div class="li"><i aria-hidden="true"></i><span>Priority support & faster response</span></div>
-                  <div class="li"><i aria-hidden="true"></i><span>Ongoing IT support & troubleshooting</span></div>
-                  <div class="li"><i aria-hidden="true"></i><span>Regular website updates & content changes</span></div>
-                </div>
-
-                <div class="cardActions">
-                  <a class="btn btn-primary" href="https://sydtechsolutions.zohobookings.com/#/4761300000000045052" target="_blank" rel="noopener noreferrer">Book Pro</a>
-                  <button class="btn" type="button" data-modal="pro">Details</button>
-                </div>
-              </article>
-
-              <!-- Premium -->
-              <article class="card">
-                <h3>Premium</h3>
-                <div class="small">Fully Managed</div>
-                <div class="price"><strong>$899</strong><span>/ month • starting</span></div>
-
-                <div class="list">
-                  <div class="li"><i aria-hidden="true"></i><span>Everything in Pro</span></div>
-                  <div class="li"><i aria-hidden="true"></i><span>Highest-priority support</span></div>
-                  <div class="li"><i aria-hidden="true"></i><span>Proactive monitoring & issue prevention</span></div>
-                  <div class="li"><i aria-hidden="true"></i><span>Strategic guidance & documentation</span></div>
-                </div>
-
-                <div class="cardActions">
-                  <a class="btn btn-primary" href="https://sydtechsolutions.zohobookings.com/#/4761300000000045052" target="_blank" rel="noopener noreferrer">Book Premium</a>
-                  <button class="btn" type="button" data-modal="premium">Details</button>
-                </div>
-              </article>
-            </div>
-
-            <div class="actions" style="margin-top:16px;">
-              <button class="btn" type="button" data-page="home">Back to Home</button>
-              <button class="btn" type="button" data-page="contact">Contact</button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- WORK -->
-      <section class="page" id="page-work" aria-label="Work page">
-        <div class="container shell">
-          <div class="panel">
-            <div class="title">Work</div>
-            <div class="desc">A few projects that show performance, clarity, and better user experience.</div>
-
-            <div class="workGrid">
-              <div class="workItem" role="button" tabindex="0" data-work="alma">
-                <div class="thumb"><img src="almaO.jpg" alt="Alma Ocean preview" /></div>
-                <div class="workBody">
-                  <strong>Alma Ocean</strong>
-                  <p>Homepage + product page cleanup + mobile optimization.</p>
-                </div>
-              </div>
-
-              <div class="workItem" role="button" tabindex="0" data-work="aura">
-                <div class="thumb"><img src="aurA.png" alt="AURA preview" /></div>
-                <div class="workBody">
-                  <strong>AURA</strong>
-                  <p>AI-powered study tools: quizzes, flashcards, scheduling.</p>
-                </div>
-              </div>
-
-              <div class="workItem" role="button" tabindex="0" data-work="lake">
-                <div class="thumb"><img src="LakeG.png" alt="Lake Grader preview" /></div>
-                <div class="workBody">
-                  <strong>Lake Grader</strong>
-                  <p>Interactive lake data visualization, responsive UI.</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="actions" style="margin-top:16px;">
-              <button class="btn" type="button" data-page="home">Back to Home</button>
-              <a class="btn btn-primary" href="https://sydtechsolutions.zohobookings.com/#/4761300000000045052" target="_blank" rel="noopener noreferrer">Book a Call</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ABOUT -->
-      <section class="page" id="page-about" aria-label="About page">
-        <div class="container shell">
-          <div class="panel">
-            <div class="title">About</div>
-            <div class="desc">
-              Syd Tech Solutions helps small businesses stay secure and online with simple monthly packages that keep your tech running smoothly.
-            </div>
-
-            <div class="grid3" style="margin-top:16px;">
-              <div class="card" style="min-height:auto;">
-                <h3>What we do</h3>
-                <div class="list" style="margin-top:10px;">
-                  <div class="li"><i aria-hidden="true"></i><span>Website maintenance & updates</span></div>
-                  <div class="li"><i aria-hidden="true"></i><span>Cybersecurity essentials</span></div>
-                  <div class="li"><i aria-hidden="true"></i><span>Ongoing IT support</span></div>
-                </div>
-              </div>
-
-              <div class="card" style="min-height:auto;">
-                <h3>Founder</h3>
-                <div class="small">Sydonya Miller</div>
-                <div class="small" style="color:var(--muted2); font-weight:800;">Computer Science • Rollins College</div>
-                <div class="small" style="margin-top:10px;">IT • Cybersecurity • Web Development</div>
-              </div>
-
-              <div class="card" style="min-height:auto;">
-                <h3>How we work</h3>
-                <div class="small">Clear communication, consistent support, and a security-first mindset.</div>
-                <div class="actions" style="margin-top:12px;">
-                  <button class="btn" type="button" data-page="packages">View Packages</button>
-                  <button class="btn" type="button" data-page="contact">Contact</button>
-                </div>
-              </div>
-            </div>
-
-            <div class="actions" style="margin-top:16px;">
-              <button class="btn" type="button" data-page="home">Back to Home</button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- CONTACT -->
-      <section class="page" id="page-contact" aria-label="Contact page">
-        <div class="container shell">
-          <div class="panel">
-            <div class="title">Contact</div>
-            <div class="desc">Book a free consultation or reach out directly.</div>
-
-            <div class="contactRow" style="margin-top:14px;">
-              <a class="linkPill" href="mailto:info@sydtechsolutions.org"><span style="color:rgba(59,130,246,.95); font-weight:900;">Email:</span> info@sydtechsolutions.org</a>
-              <a class="linkPill" href="tel:+14075132190"><span style="color:rgba(59,130,246,.95); font-weight:900;">Phone:</span> (407) 513-2190</a>
-              <a class="linkPill" href="https://www.instagram.com/sydtechsolutions.llc" target="_blank" rel="noopener noreferrer">Instagram</a>
-            </div>
-
-            <div class="actions" style="margin-top:16px;">
-              <a class="btn btn-primary" href="https://sydtechsolutions.zohobookings.com/#/4761300000000045052" target="_blank" rel="noopener noreferrer">Book Free Consultation</a>
-              <button class="btn" type="button" data-page="home">Back to Home</button>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <!-- FOOTER -->
-    <footer>
-      <div class="container">
-        <div class="foot">
-          <div>© <span id="year"></span> Syd Tech Solutions. All rights reserved.</div>
-          <a class="social" href="https://www.instagram.com/sydtechsolutions.llc" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-            <img src="ig.webp" alt="Instagram icon" />
-          </a>
+        <div class="contactLinks">
+          <a href="https://sydtechsolutions.zohobookings.com/#/4761300000000045052" target="_blank" rel="noopener noreferrer">Book a Free Consultation</a>
+          <a href="https://www.instagram.com/sydtechsolutions.llc" target="_blank" rel="noopener noreferrer" aria-label="Instagram">Instagram</a>
         </div>
       </div>
-    </footer>
-  </div>
+    </div>
+  </section>
 
-  <!-- MODALS -->
+  <footer>
+    <div class="container">
+      <div class="foot">
+        <div>© <span id="year"></span> Syd Tech Solutions. All rights reserved.</div>
+        <a class="social" href="https://www.instagram.com/sydtechsolutions.llc" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <img src="ig.webp" alt="Instagram icon" />
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <button id="scrollTopBtn" aria-label="Scroll to top">↑</button>
+
+  <!-- Package Detail Modals -->
   <div class="modal" id="modal-starter" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Starter package details">
-    <div class="modalCard">
+    <div class="modalContent">
       <div class="modalTop">
         <h3>Starter — Essential Coverage</h3>
         <button class="closeBtn" type="button" data-close>Close</button>
       </div>
       <div class="modalBody">
         Great for businesses that want consistent maintenance and solid security basics without complexity.
+        <div class="modalList">
+          <div class="check"><i aria-hidden="true"></i><span>Website maintenance + minor updates</span></div>
+          <div class="check"><i aria-hidden="true"></i><span>Security essentials (malware scans, baseline hardening)</span></div>
+          <div class="check"><i aria-hidden="true"></i><span>Performance & uptime monitoring</span></div>
+          <div class="check"><i aria-hidden="true"></i><span>Email support (business hours)</span></div>
+          <div class="check"><i aria-hidden="true"></i><span>Monthly health summary</span></div>
+        </div>
         <div class="divider"></div>
-        <div class="actions" style="margin-top:14px;">
+        <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
           <a class="btn btn-primary" href="https://sydtechsolutions.zohobookings.com/#/4761300000000045052" target="_blank" rel="noopener noreferrer">Book Starter</a>
+          <a class="btn" href="#contact">Contact</a>
         </div>
       </div>
     </div>
   </div>
 
   <div class="modal" id="modal-pro" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Pro package details">
-    <div class="modalCard">
+    <div class="modalContent">
       <div class="modalTop">
         <h3>Pro — Growth Support</h3>
         <button class="closeBtn" type="button" data-close>Close</button>
       </div>
       <div class="modalBody">
         Best for growing businesses that want priority help and consistent improvements across IT, security, and website updates.
+        <div class="modalList">
+          <div class="check"><i aria-hidden="true"></i><span>Everything in Starter</span></div>
+          <div class="check"><i aria-hidden="true"></i><span>Priority support & faster response</span></div>
+          <div class="check"><i aria-hidden="true"></i><span>Ongoing IT support & troubleshooting</span></div>
+          <div class="check"><i aria-hidden="true"></i><span>Enhanced security practices & account protection</span></div>
+          <div class="check"><i aria-hidden="true"></i><span>Regular website updates & content changes</span></div>
+          <div class="check"><i aria-hidden="true"></i><span>Quarterly system & website health review</span></div>
+        </div>
         <div class="divider"></div>
-        <div class="actions" style="margin-top:14px;">
+        <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
           <a class="btn btn-primary" href="https://sydtechsolutions.zohobookings.com/#/4761300000000045052" target="_blank" rel="noopener noreferrer">Book Pro</a>
+          <a class="btn" href="#contact">Contact</a>
         </div>
       </div>
     </div>
   </div>
 
   <div class="modal" id="modal-premium" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Premium package details">
-    <div class="modalCard">
+    <div class="modalContent">
       <div class="modalTop">
         <h3>Premium — Fully Managed</h3>
         <button class="closeBtn" type="button" data-close>Close</button>
       </div>
       <div class="modalBody">
         Ideal if you want proactive monitoring, stronger security oversight, and a true tech partner you can lean on.
+        <div class="modalList">
+          <div class="check"><i aria-hidden="true"></i><span>Everything in Pro</span></div>
+          <div class="check"><i aria-hidden="true"></i><span>Highest-priority support</span></div>
+          <div class="check"><i aria-hidden="true"></i><span>Proactive monitoring & issue prevention</span></div>
+          <div class="check"><i aria-hidden="true"></i><span>Advanced security oversight</span></div>
+          <div class="check"><i aria-hidden="true"></i><span>Strategic planning & technical guidance</span></div>
+          <div class="check"><i aria-hidden="true"></i><span>White-glove onboarding & documentation</span></div>
+        </div>
         <div class="divider"></div>
-        <div class="actions" style="margin-top:14px;">
+        <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
           <a class="btn btn-primary" href="https://sydtechsolutions.zohobookings.com/#/4761300000000045052" target="_blank" rel="noopener noreferrer">Book Premium</a>
+          <a class="btn" href="#contact">Contact</a>
         </div>
       </div>
     </div>
   </div>
 
+  <!-- Work detail modal (reused) -->
   <div class="modal" id="modal-work" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Work details">
-    <div class="modalCard">
+    <div class="modalContent">
       <div class="modalTop">
         <h3 id="workTitle">Project</h3>
         <button class="closeBtn" type="button" data-close>Close</button>
@@ -831,59 +1073,59 @@
   </div>
 
   <script>
-    // Footer year
+    // Year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Page routing (single file, no scroll)
-    const pages = ["home", "packages", "work", "about", "contact"];
-
-    function showPage(key) {
-      pages.forEach(p => {
-        const el = document.getElementById(`page-${p}`);
-        if (el) el.classList.toggle("active", p === key);
-      });
-
-      document.querySelectorAll(".navlink").forEach(btn => {
-        btn.classList.toggle("active", btn.getAttribute("data-page") === key);
-      });
-
-      // Keep the viewport pinned at top (extra safety)
-      window.scrollTo(0,0);
-    }
-
-    // Buttons/links that switch "pages"
-    document.querySelectorAll("[data-page]").forEach(el => {
-      el.addEventListener("click", (e) => {
-        const key = el.getAttribute("data-page");
-        if (!key) return;
-
-        // prevent default for brand link
-        if (el.tagName.toLowerCase() === "a") e.preventDefault();
-
-        showPage(key);
+    // Mobile menu
+    const menuBtn = document.getElementById('menuBtn');
+    const mobilePanel = document.getElementById('mobilePanel');
+    menuBtn?.addEventListener('click', () => {
+      const isOpen = mobilePanel.classList.toggle('show');
+      menuBtn.setAttribute('aria-expanded', String(isOpen));
+    });
+    // Close mobile menu when clicking a link
+    mobilePanel?.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        mobilePanel.classList.remove('show');
+        menuBtn.setAttribute('aria-expanded', 'false');
       });
     });
 
-    // Modal helpers
+    // Scroll to top
+    const scrollBtn = document.getElementById('scrollTopBtn');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 350) scrollBtn.classList.add('show');
+      else scrollBtn.classList.remove('show');
+    });
+    scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // Modals (packages)
     const openModal = (id) => {
-      const m = document.getElementById(id);
-      if (!m) return;
-      m.setAttribute("aria-hidden", "false");
-      const close = m.querySelector("[data-close]");
-      close && close.focus();
-    };
-    const closeModal = (m) => {
-      if (!m) return;
-      m.setAttribute("aria-hidden", "true");
+      const modal = document.getElementById(id);
+      if (!modal) return;
+      modal.setAttribute('aria-hidden', 'false');
+      // focus close button
+      const close = modal.querySelector('[data-close]');
+      close?.focus();
     };
 
-    document.querySelectorAll("[data-modal]").forEach(btn => {
-      btn.addEventListener("click", () => {
-        openModal(`modal-${btn.getAttribute("data-modal")}`);
+    const closeModal = (modalEl) => {
+      if (!modalEl) return;
+      modalEl.setAttribute('aria-hidden', 'true');
+    };
+
+    document.querySelectorAll('[data-modal]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const key = btn.getAttribute('data-modal');
+        openModal(`modal-${key}`);
       });
     });
 
     // Work modal content
+    const workModal = document.getElementById('modal-work');
+    const workTitle = document.getElementById('workTitle');
+    const workBody = document.getElementById('workBody');
+
     const workData = {
       alma: {
         title: "Alma Ocean",
@@ -891,71 +1133,63 @@
           <p><strong>Challenge:</strong> Site wasn’t mobile-friendly and product pages were cluttered.</p>
           <p><strong>Solution:</strong> Homepage revamp, product page cleanup, and mobile optimization.</p>
           <p><strong>Result:</strong> Faster load time, clearer product flow, and higher mobile engagement.</p>
-          <div class="divider"></div>
-          <div class="actions" style="margin-top:14px;">
-            <a class="btn btn-primary" href="https://sydtechsolutions.zohobookings.com/#/4761300000000045052" target="_blank" rel="noopener noreferrer">Book a Call</a>
-          </div>
         `
       },
       aura: {
-        title: "AURA",
+        title: "AURA — Adaptive User Reflection Assistant",
         body: `
           <p>AI-powered quiz and flashcard generation, task management, and intelligent scheduling using spaced repetition.</p>
-          <p><strong>Outcome:</strong> Reduced study prep time through automation and organization.</p>
-          <div class="divider"></div>
-          <div class="actions" style="margin-top:14px;">
-            <a class="btn btn-primary" href="https://sydtechsolutions.zohobookings.com/#/4761300000000045052" target="_blank" rel="noopener noreferrer">Book a Call</a>
-          </div>
+          <p><strong>Result:</strong> Reduced study prep time by ~40% through automation and organization.</p>
         `
       },
       lake: {
-        title: "Lake Grader",
+        title: "Lake Grader Website",
         body: `
           <p>Interactive web app visualizing freshwater lake data with comparisons and responsive design for all devices.</p>
           <p><strong>Outcome:</strong> Clearer insights and improved usability for non-technical users.</p>
-          <div class="divider"></div>
-          <div class="actions" style="margin-top:14px;">
-            <a class="btn btn-primary" href="https://sydtechsolutions.zohobookings.com/#/4761300000000045052" target="_blank" rel="noopener noreferrer">Book a Call</a>
-          </div>
         `
       }
     };
 
-    const workTitle = document.getElementById("workTitle");
-    const workBody = document.getElementById("workBody");
-
-    function openWork(key){
+    const openWork = (key) => {
       const data = workData[key];
       if (!data) return;
       workTitle.textContent = data.title;
-      workBody.innerHTML = data.body;
-      openModal("modal-work");
-    }
+      workBody.innerHTML = data.body + `
+        <div class="divider"></div>
+        <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="btn btn-primary" href="https://sydtechsolutions.zohobookings.com/#/4761300000000045052" target="_blank" rel="noopener noreferrer">Book a Call</a>
+          <a class="btn" href="#contact">Contact</a>
+        </div>
+      `;
+      openModal('modal-work');
+    };
 
-    document.querySelectorAll("[data-work]").forEach(card => {
-      card.addEventListener("click", () => openWork(card.getAttribute("data-work")));
-      card.addEventListener("keydown", (e) => {
-        if (e.key === "Enter" || e.key === " ") {
+    document.querySelectorAll('[data-work]').forEach(card => {
+      card.addEventListener('click', () => openWork(card.getAttribute('data-work')));
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
-          openWork(card.getAttribute("data-work"));
+          openWork(card.getAttribute('data-work'));
         }
       });
     });
 
-    // Close modals (click outside, close button, ESC)
-    document.querySelectorAll(".modal").forEach(m => {
-      m.addEventListener("click", (e) => { if (e.target === m) closeModal(m); });
-      m.querySelectorAll("[data-close]").forEach(btn => btn.addEventListener("click", () => closeModal(m)));
+    // Close modals on overlay click + ESC
+    document.querySelectorAll('.modal').forEach(modal => {
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal(modal);
+      });
+      modal.querySelectorAll('[data-close]').forEach(btn => {
+        btn.addEventListener('click', () => closeModal(modal));
+      });
     });
 
-    window.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") {
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
         document.querySelectorAll('.modal[aria-hidden="false"]').forEach(m => closeModal(m));
       }
     });
-
-    // Start on Home
-    showPage("home");
   </script>
 </body>
 </html>
