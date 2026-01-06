@@ -22,7 +22,6 @@
     :root{
       --bg: #0b0b0f;
       --panel: #11121a;
-      --panel-2: #0f1017;
       --border: rgba(255,255,255,0.10);
       --text: #ffffff;
       --muted: rgba(255,255,255,0.70);
@@ -31,7 +30,6 @@
       --blue-2: #1d4ed8;
       --shadow: 0 18px 60px rgba(0,0,0,0.55);
       --radius: 18px;
-      --radius-sm: 14px;
       --max: 1120px;
       --nav-h: 64px;
     }
@@ -159,18 +157,18 @@
     }
     .mobilePanel a:hover{ background: rgba(255,255,255,0.06); color:#fff; }
 
-    /* HERO (New Minimal Full-Screen Home) */
+    /* HERO (Centered, minimal, full-screen on desktop) */
     .hero{
-      min-height: calc(100vh - var(--nav-h));
+      min-height: calc(100vh - var(--nav-h)); /* keeps Packages from peeking on desktop */
       display:flex;
       align-items:center;
-      padding: 40px 0 54px;
+      padding: 44px 0 54px;
     }
-    .hero-grid{
-      display:grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 26px;
-      align-items:center;
+    .hero-center{
+      width: 100%;
+      max-width: 820px;
+      margin: 0 auto;
+      text-align: center;
     }
     .kicker{
       display:inline-flex;
@@ -184,6 +182,7 @@
       font-weight: 700;
       font-size: 13px;
       width: fit-content;
+      margin: 0 auto;
     }
     .kicker .dot{
       width: 8px; height: 8px; border-radius: 999px;
@@ -192,87 +191,28 @@
     }
 
     h1{
-      margin-top: 14px;
-      font-size: clamp(36px, 4.6vw, 58px);
-      line-height: 1.04;
-      letter-spacing: -0.04em;
+      margin-top: 16px;
+      font-size: clamp(38px, 5vw, 64px);
+      line-height: 1.02;
+      letter-spacing: -0.045em;
       font-weight: 800;
     }
     .subhead{
-      margin-top: 14px;
+      margin: 14px auto 0;
       color: var(--muted);
       font-size: 16px;
-      max-width: 60ch;
+      max-width: 64ch;
     }
     .hero-actions{
       margin-top: 22px;
       display:flex;
+      justify-content:center;
       gap: 12px;
       flex-wrap: wrap;
       align-items:center;
     }
 
-    /* Simple right-side card (clean, not busy) */
-    .hero-card{
-      border-radius: var(--radius);
-      border: 1px solid rgba(59,130,246,0.22);
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03)),
-        radial-gradient(600px 320px at 30% 0%, rgba(59,130,246,0.18), transparent 55%),
-        var(--panel);
-      box-shadow: var(--shadow);
-      padding: 20px;
-    }
-    .hero-card .mini{
-      color: var(--muted-2);
-      font-weight: 800;
-      font-size: 12px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-    .hero-card .big{
-      margin-top: 10px;
-      font-weight: 900;
-      letter-spacing: -0.03em;
-      font-size: 18px;
-      line-height: 1.25;
-    }
-    .hero-card .list{
-      margin-top: 14px;
-      display:flex;
-      flex-direction:column;
-      gap: 12px;
-      color: var(--muted);
-      font-weight: 650;
-      font-size: 14px;
-    }
-
-    .check{
-      display:flex;
-      gap: 10px;
-      align-items:flex-start;
-    }
-    .check i{
-      width: 18px; height: 18px; flex: 0 0 18px;
-      border-radius: 6px;
-      background: rgba(59,130,246,0.18);
-      border: 1px solid rgba(59,130,246,0.35);
-      margin-top: 2px;
-      position: relative;
-    }
-    .check i:after{
-      content:"";
-      position:absolute;
-      left: 5px;
-      top: 3px;
-      width: 6px;
-      height: 10px;
-      border: solid rgba(255,255,255,0.92);
-      border-width: 0 2px 2px 0;
-      transform: rotate(45deg);
-    }
-
-    /* Scroll hint */
+    /* Scroll hint (keep this instead of a secondary CTA) */
     .scrollHint{
       margin-top: 26px;
       color: var(--muted-2);
@@ -280,6 +220,7 @@
       font-size: 13px;
       display:flex;
       align-items:center;
+      justify-content:center;
       gap: 10px;
       user-select:none;
     }
@@ -404,6 +345,31 @@
       color: var(--muted);
       font-weight: 600;
       font-size: 14px;
+    }
+
+    .check{
+      display:flex;
+      gap: 10px;
+      align-items:flex-start;
+    }
+    .check i{
+      width: 18px; height: 18px; flex: 0 0 18px;
+      border-radius: 6px;
+      background: rgba(59,130,246,0.18);
+      border: 1px solid rgba(59,130,246,0.35);
+      margin-top: 2px;
+      position: relative;
+    }
+    .check i:after{
+      content:"";
+      position:absolute;
+      left: 5px;
+      top: 3px;
+      width: 6px;
+      height: 10px;
+      border: solid rgba(255,255,255,0.92);
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
     }
 
     .card .actions{
@@ -698,7 +664,6 @@
     /* Responsive */
     @media (max-width: 920px){
       .hero{ min-height: unset; padding: 56px 0 46px; }
-      .hero-grid{ grid-template-columns: 1fr; }
       .grid-3{ grid-template-columns: 1fr; }
       .work-grid{ grid-template-columns: 1fr; }
       .two{ grid-template-columns: 1fr; }
@@ -753,39 +718,28 @@
     </div>
   </div>
 
-  <!-- HERO (Minimal Full-Screen Home) -->
+  <!-- HERO (Centered Layout) -->
   <header id="home" class="hero">
     <div class="container">
-      <div class="hero-grid">
-        <div>
-          <div class="kicker"><span class="dot"></span> IT + Web Support for Small Businesses</div>
-          <h1>Reliable tech support.<br/>Monthly coverage.<br/><span style="color:rgba(59,130,246,0.95);">No stress.</span></h1>
+      <div class="hero-center">
+        <div class="kicker"><span class="dot"></span> Monthly IT, Security &amp; Website Support</div>
 
-          <p class="subhead">
-            Ongoing website maintenance, cybersecurity essentials, and IT support—built for businesses that want consistent coverage, not one-off fixes.
-          </p>
+        <h1>Your tech.<br/><span style="color:rgba(59,130,246,0.95);">Fully managed.</span></h1>
 
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="https://sydtechsolutions.zohobookings.com/#/4761300000000045052" target="_blank" rel="noopener noreferrer">Book a Free Consultation</a>
-            <a class="btn" href="#contact">Contact</a>
-          </div>
+        <p class="subhead">
+          We keep your website, security, and systems running smoothly through simple monthly packages — so you can focus on growing your business.
+        </p>
 
-          <div class="scrollHint" aria-hidden="true">
-            <span class="mouse"></span>
-            <span>Scroll for more (or use the menu to jump)</span>
-          </div>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://sydtechsolutions.zohobookings.com/#/4761300000000045052" target="_blank" rel="noopener noreferrer">
+            Book a Free Consultation
+          </a>
         </div>
 
-        <div class="hero-card" aria-label="At a glance">
-          <div class="mini">At a glance</div>
-          <div class="big">What Syd Tech Solutions helps with</div>
-          <div class="list">
-            <div class="check"><i aria-hidden="true"></i><span>Website maintenance & updates</span></div>
-            <div class="check"><i aria-hidden="true"></i><span>Cybersecurity essentials & hardening</span></div>
-            <div class="check"><i aria-hidden="true"></i><span>Ongoing IT troubleshooting & support</span></div>
-          </div>
+        <div class="scrollHint" aria-hidden="true">
+          <span class="mouse"></span>
+          <span>Scroll for more (or use the menu to jump)</span>
         </div>
-
       </div>
     </div>
   </header>
