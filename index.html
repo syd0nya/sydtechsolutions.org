@@ -33,6 +33,7 @@
       --radius: 18px;
       --radius-sm: 14px;
       --max: 1120px;
+      --nav-h: 64px;
     }
 
     *{ box-sizing:border-box; margin:0; padding:0; }
@@ -64,10 +65,11 @@
       border-bottom: 1px solid rgba(255,255,255,0.08);
     }
     .navwrap{
+      min-height: var(--nav-h);
       display:flex;
       align-items:center;
       justify-content:space-between;
-      padding: 14px 0;
+      padding: 10px 0;
       gap: 16px;
     }
 
@@ -141,12 +143,6 @@
     }
     .btn-primary:hover{ background: linear-gradient(135deg, #4b8cf9, #1e40af); border-color: rgba(59,130,246,0.75); }
 
-    .btn-ghost{
-      background: transparent;
-      border: 1px solid rgba(255,255,255,0.16);
-      color: #fff;
-    }
-
     /* Mobile nav */
     .menuBtn{ display:none; }
     .mobilePanel{
@@ -163,15 +159,18 @@
     }
     .mobilePanel a:hover{ background: rgba(255,255,255,0.06); color:#fff; }
 
-    /* Hero */
+    /* HERO (New Minimal Full-Screen Home) */
     .hero{
-      padding: 70px 0 40px;
+      min-height: calc(100vh - var(--nav-h));
+      display:flex;
+      align-items:center;
+      padding: 40px 0 54px;
     }
     .hero-grid{
       display:grid;
       grid-template-columns: 1.2fr 0.8fr;
-      gap: 28px;
-      align-items: center;
+      gap: 26px;
+      align-items:center;
     }
     .kicker{
       display:inline-flex;
@@ -194,8 +193,8 @@
 
     h1{
       margin-top: 14px;
-      font-size: clamp(34px, 4.2vw, 54px);
-      line-height: 1.05;
+      font-size: clamp(36px, 4.6vw, 58px);
+      line-height: 1.04;
       letter-spacing: -0.04em;
       font-weight: 800;
     }
@@ -203,7 +202,7 @@
       margin-top: 14px;
       color: var(--muted);
       font-size: 16px;
-      max-width: 56ch;
+      max-width: 60ch;
     }
     .hero-actions{
       margin-top: 22px;
@@ -213,53 +212,41 @@
       align-items:center;
     }
 
-    .trust{
-      margin-top: 26px;
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-    }
-    .trust .pill{
-      border: 1px solid rgba(255,255,255,0.10);
-      background: rgba(255,255,255,0.03);
-      border-radius: 999px;
-      padding: 10px 12px;
-      color: var(--muted);
-      font-weight: 700;
-      font-size: 13px;
-      text-align:center;
-    }
-
+    /* Simple right-side card (clean, not busy) */
     .hero-card{
       border-radius: var(--radius);
       border: 1px solid rgba(59,130,246,0.22);
       background:
         linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03)),
-        radial-gradient(600px 320px at 30% 0%, rgba(59,130,246,0.22), transparent 55%),
+        radial-gradient(600px 320px at 30% 0%, rgba(59,130,246,0.18), transparent 55%),
         var(--panel);
       box-shadow: var(--shadow);
-      padding: 18px;
+      padding: 20px;
     }
     .hero-card .mini{
-      color: var(--muted);
-      font-weight: 700;
-      font-size: 13px;
+      color: var(--muted-2);
+      font-weight: 800;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
     .hero-card .big{
       margin-top: 10px;
-      font-weight: 800;
+      font-weight: 900;
       letter-spacing: -0.03em;
-      font-size: 20px;
+      font-size: 18px;
+      line-height: 1.25;
     }
     .hero-card .list{
-      margin-top: 12px;
+      margin-top: 14px;
       display:flex;
       flex-direction:column;
-      gap: 10px;
+      gap: 12px;
       color: var(--muted);
-      font-weight: 600;
+      font-weight: 650;
       font-size: 14px;
     }
+
     .check{
       display:flex;
       gap: 10px;
@@ -283,6 +270,43 @@
       border: solid rgba(255,255,255,0.92);
       border-width: 0 2px 2px 0;
       transform: rotate(45deg);
+    }
+
+    /* Scroll hint */
+    .scrollHint{
+      margin-top: 26px;
+      color: var(--muted-2);
+      font-weight: 700;
+      font-size: 13px;
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      user-select:none;
+    }
+    .mouse{
+      width: 18px;
+      height: 28px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.18);
+      position: relative;
+      background: rgba(255,255,255,0.04);
+    }
+    .mouse:after{
+      content:"";
+      width: 4px;
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.55);
+      position:absolute;
+      left: 50%;
+      top: 6px;
+      transform: translateX(-50%);
+      animation: wheel 1.4s ease-in-out infinite;
+    }
+    @keyframes wheel{
+      0%{ opacity: .2; transform: translate(-50%, 0); }
+      40%{ opacity: 1; }
+      100%{ opacity: .2; transform: translate(-50%, 10px); }
     }
 
     /* Headings */
@@ -673,8 +697,8 @@
 
     /* Responsive */
     @media (max-width: 920px){
+      .hero{ min-height: unset; padding: 56px 0 46px; }
       .hero-grid{ grid-template-columns: 1fr; }
-      .trust{ grid-template-columns: 1fr; }
       .grid-3{ grid-template-columns: 1fr; }
       .work-grid{ grid-template-columns: 1fr; }
       .two{ grid-template-columns: 1fr; }
@@ -682,11 +706,13 @@
       .navlinks{ display:none; }
       .menuBtn{ display:inline-flex; }
       .mobilePanel.show{ display:block; }
+      .scrollHint{ display:none; }
     }
 
     @media (prefers-reduced-motion: reduce){
       html{ scroll-behavior: auto; }
       *{ transition: none !important; animation: none !important; }
+      .mouse:after{ animation: none !important; }
     }
   </style>
 </head>
@@ -727,42 +753,36 @@
     </div>
   </div>
 
-  <!-- HERO -->
+  <!-- HERO (Minimal Full-Screen Home) -->
   <header id="home" class="hero">
     <div class="container">
       <div class="hero-grid">
         <div>
           <div class="kicker"><span class="dot"></span> IT + Web Support for Small Businesses</div>
-          <h1>Reliable tech support.<br/>One monthly package.<br/><span style="color:rgba(59,130,246,0.95);">Zero stress.</span></h1>
+          <h1>Reliable tech support.<br/>Monthly coverage.<br/><span style="color:rgba(59,130,246,0.95);">No stress.</span></h1>
+
           <p class="subhead">
-            Syd Tech Solutions provides ongoing website maintenance, cybersecurity essentials, and IT support—built for businesses that want coverage, not one-off fixes.
+            Ongoing website maintenance, cybersecurity essentials, and IT support—built for businesses that want consistent coverage, not one-off fixes.
           </p>
 
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#packages">View Packages</a>
-            <a class="btn btn-ghost" href="https://sydtechsolutions.zohobookings.com/#/4761300000000045052" target="_blank" rel="noopener noreferrer">Book a Free Consultation</a>
+            <a class="btn btn-primary" href="https://sydtechsolutions.zohobookings.com/#/4761300000000045052" target="_blank" rel="noopener noreferrer">Book a Free Consultation</a>
+            <a class="btn" href="#contact">Contact</a>
           </div>
 
-          <div class="trust" aria-label="Trust highlights">
-            <div class="pill">Security-first mindset</div>
-            <div class="pill">Small business focused</div>
-            <div class="pill">Clear monthly coverage</div>
+          <div class="scrollHint" aria-hidden="true">
+            <span class="mouse"></span>
+            <span>Scroll for more (or use the menu to jump)</span>
           </div>
         </div>
 
-        <div class="hero-card" aria-label="What you get">
-          <div class="mini">What’s included in every package</div>
-          <div class="big">Support that actually feels managed</div>
+        <div class="hero-card" aria-label="At a glance">
+          <div class="mini">At a glance</div>
+          <div class="big">What Syd Tech Solutions helps with</div>
           <div class="list">
-            <div class="check"><i aria-hidden="true"></i><span>Ongoing maintenance & updates</span></div>
-            <div class="check"><i aria-hidden="true"></i><span>Security checks & best practices</span></div>
-            <div class="check"><i aria-hidden="true"></i><span>Fast help when issues come up</span></div>
-            <div class="check"><i aria-hidden="true"></i><span>Monthly health summary</span></div>
-          </div>
-          <div class="divider"></div>
-          <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
-            <a class="btn btn-primary" href="#packages">Compare Packages</a>
-            <a class="btn" href="#contact">Contact</a>
+            <div class="check"><i aria-hidden="true"></i><span>Website maintenance & updates</span></div>
+            <div class="check"><i aria-hidden="true"></i><span>Cybersecurity essentials & hardening</span></div>
+            <div class="check"><i aria-hidden="true"></i><span>Ongoing IT troubleshooting & support</span></div>
           </div>
         </div>
 
@@ -1099,12 +1119,11 @@
     });
     scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-    // Modals (packages)
+    // Modals (packages + work)
     const openModal = (id) => {
       const modal = document.getElementById(id);
       if (!modal) return;
       modal.setAttribute('aria-hidden', 'false');
-      // focus close button
       const close = modal.querySelector('[data-close]');
       close?.focus();
     };
@@ -1122,7 +1141,6 @@
     });
 
     // Work modal content
-    const workModal = document.getElementById('modal-work');
     const workTitle = document.getElementById('workTitle');
     const workBody = document.getElementById('workBody');
 
