@@ -861,6 +861,16 @@
       <p class="p-center">A few projects that show how we improve performance, clarity, and experience.</p>
 
       <div class="work-grid">
+  <!-- Cemetric Derell (NEW #1) -->
+  <div class="work-item" role="button" tabindex="0" data-work="cemetric">
+    <div class="work-thumb"><img src="cemetric.jpg" alt="Cemetric Derell preview" /></div>
+    <div class="work-body">
+      <h4>Cemetric Derell</h4>
+      <p>Luxury brand website build + performance-focused layout.</p>
+    </div>
+  </div>
+        
+      <div class="work-grid">
         <div class="work-item" role="button" tabindex="0" data-work="alma">
           <div class="work-thumb"><img src="almaO.jpg" alt="Alma Ocean preview" /></div>
           <div class="work-body">
@@ -877,13 +887,6 @@
           </div>
         </div>
 
-        <div class="work-item" role="button" tabindex="0" data-work="lake">
-          <div class="work-thumb"><img src="LakeG.png" alt="Lake Grader preview" /></div>
-          <div class="work-body">
-            <h4>Lake Grader Website</h4>
-            <p>Interactive data visualization with responsive design.</p>
-          </div>
-        </div>
       </div>
 
       <p class="p-center" style="margin-top:18px; color: var(--muted-2);">
@@ -1107,6 +1110,14 @@
     const workBody = document.getElementById('workBody');
 
     const workData = {
+      cemetric: {
+    title: "Cemetric Derell",
+    body: `
+      <p><strong>Challenge:</strong> Launch a luxury brand site with a premium look that still loads fast and feels easy to shop.</p>
+      <p><strong>Solution:</strong> Clean layout structure, responsive styling, and performance-first section design.</p>
+      <p><strong>Result:</strong> Stronger brand presence with a smoother mobile experience.</p>
+    `
+  },
       alma: {
         title: "Alma Ocean",
         body: `
@@ -1120,13 +1131,6 @@
         body: `
           <p>AI-powered quiz and flashcard generation, task management, and intelligent scheduling using spaced repetition.</p>
           <p><strong>Result:</strong> Reduced study prep time by ~40% through automation and organization.</p>
-        `
-      },
-      lake: {
-        title: "Lake Grader Website",
-        body: `
-          <p>Interactive web app visualizing freshwater lake data with comparisons and responsive design for all devices.</p>
-          <p><strong>Outcome:</strong> Clearer insights and improved usability for non-technical users.</p>
         `
       }
     };
