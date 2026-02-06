@@ -686,6 +686,76 @@
       *{ transition: none !important; animation: none !important; }
       .mouse:after{ animation: none !important; }
     }
+
+    /* Testimonials ticker */
+.testimonialBar{
+  background: rgba(255,255,255,0.03);
+  border-top: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  overflow: hidden;
+}
+
+.testimonialInner{
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 18px 20px;
+}
+
+.testimonialLabel{
+  text-align:center;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+  margin-bottom: 10px;
+}
+
+.testimonialTrack{
+  display:flex;
+  gap: 12px;
+  width: max-content;
+  animation: scrollReviews 40s linear infinite;
+}
+
+.testimonial{
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(0,0,0,0.2);
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+  color: rgba(255,255,255,0.9);
+}
+
+.testimonial span{
+  color: rgba(59,130,246,0.95);
+  font-weight: 800;
+}
+
+@keyframes scrollReviews{
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Pause on hover */
+@media (hover:hover){
+  .testimonialBar:hover .testimonialTrack{
+    animation-play-state: paused;
+  }
+}
+
+/* Reduce motion support */
+@media (prefers-reduced-motion: reduce){
+  .testimonialTrack{
+    animation: none;
+  }
+}
+
+
+
+    
   </style>
 </head>
 
@@ -750,6 +820,36 @@
       </div>
     </div>
   </header>
+
+
+  <!-- TESTIMONIALS -->
+<section class="testimonialBar" aria-label="Client testimonials">
+  <div class="testimonialInner">
+
+    <div class="testimonialLabel">
+      Trusted by Growing Businesses
+    </div>
+
+    <div class="testimonialTrack">
+
+      <!-- Set 1 -->
+      <div class="testimonial">★★★★★ “Fast, clear, and professional.” <span>— Client</span></div>
+      <div class="testimonial">★★★★★ “Fixed everything the same day.” <span>— Client</span></div>
+      <div class="testimonial">★★★★★ “My site finally feels reliable.” <span>— Client</span></div>
+      <div class="testimonial">★★★★★ “Worth every dollar.” <span>— Client</span></div>
+      <div class="testimonial">★★★★★ “Super responsive and organized.” <span>— Client</span></div>
+
+      <!-- Set 2 (duplicate for loop) -->
+      <div class="testimonial">★★★★★ “Fast, clear, and professional.” <span>— Client</span></div>
+      <div class="testimonial">★★★★★ “Fixed everything the same day.” <span>— Client</span></div>
+      <div class="testimonial">★★★★★ “My site finally feels reliable.” <span>— Client</span></div>
+      <div class="testimonial">★★★★★ “Worth every dollar.” <span>— Client</span></div>
+      <div class="testimonial">★★★★★ “Super responsive and organized.” <span>— Client</span></div>
+
+    </div>
+  </div>
+</section>
+
 
   <!-- PACKAGES -->
   <section id="packages" class="section">
