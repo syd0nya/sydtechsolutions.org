@@ -787,6 +787,99 @@
 }
 
 
+
+    /* FAQ */
+.faq-list {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 780px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.faq-item {
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(255,255,255,0.03);
+  overflow: hidden;
+}
+.faq-q {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 22px;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  text-align: left;
+  gap: 16px;
+}
+.faq-q:hover { background: rgba(255,255,255,0.04); }
+.faq-icon {
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--blue);
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+.faq-q[aria-expanded="true"] .faq-icon {
+  transform: rotate(45deg);
+}
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s ease;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.7;
+  padding: 0 22px;
+}
+.faq-item.open .faq-a {
+  max-height: 200px;
+  padding: 0 22px 18px;
+}
+
+    /* How It Works */
+.steps {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.step {
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(255,255,255,0.03);
+  padding: 28px 24px;
+}
+.step-num {
+  font-size: 36px;
+  font-weight: 800;
+  color: rgba(59,130,246,0.4);
+  letter-spacing: -0.04em;
+  margin-bottom: 14px;
+}
+.step h3 {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
+}
+.step p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+@media (max-width: 920px) {
+  .steps { grid-template-columns: 1fr; }
+}
+
     
   </style>
 </head>
@@ -961,19 +1054,19 @@
           <article class="card" style="min-height:auto;">
             <div class="badge">Website</div>
             <h3>New Website Development</h3>
-            <p class="for">Custom design & layout. Up to 5 pages. Mobile-responsive across all devices. Basic SEO setup. Launch-ready code.</p>
+            <p class="for">No website yet, or need to start fresh? We build a clean, professional, mobile-ready site from scratch, designed to make the right first impression and convert visitors into clients.</p>
             <div class="price"><strong>$3,500+</strong><span>one-time</span></div>
           </article>
           <article class="card" style="min-height:auto;">
             <div class="badge">Website</div>
             <h3>Website Revamp</h3>
-            <p class="for">Up to 4 pages. Modern design, improved structure, and performance cleanup.</p>
+            <p class="for">Your site exists but it's outdated, slow, or just not working anymore. We modernize the design, clean up the structure, and make it something you're proud to share.</p>
             <div class="price"><strong>$1,500+</strong><span>one-time</span></div>
           </article>
           <article class="card" style="min-height:auto;">
             <div class="badge">Security</div>
             <h3>Cybersecurity Assessment</h3>
-            <p class="for">Risk review + recommendations to strengthen accounts, devices, and workflows.</p>
+            <p class="for">Not sure how exposed your business really is? We review your accounts, devices, and workflows and deliver a clear, actionable report on exactly what to fix and how.</p>
             <div class="price"><strong>$997</strong><span>one-time</span></div>
           </article>
         </div>
@@ -1055,9 +1148,9 @@
             The goal is to prevent problems, fix issues quickly, and keep your tech running smoothly.
           </p>
           <div class="miniList">
-            <div class="check"><i aria-hidden="true"></i><span>Security-first support</span></div>
-            <div class="check"><i aria-hidden="true"></i><span>Clear monthly coverage</span></div>
-            <div class="check"><i aria-hidden="true"></i><span>Practical solutions for real businesses</span></div>
+            <div class="check"><i aria-hidden="true"></i><span>Security-first approach to every system we touch</span></div>
+            <div class="check"><i aria-hidden="true"></i><span>Predictable monthly pricing with no surprise bills</span></div>
+            <div class="check"><i aria-hidden="true"></i><span>Built for small businesses that can't afford downtime</span></div>
           </div>
         </div>
 
@@ -1079,6 +1172,96 @@
       </div>
     </div>
   </section>
+
+
+  <!-- HOW IT WORKS -->
+<section class="section">
+  <div class="container">
+    <h2 class="h2">How It Works</h2>
+    <p class="p-center">Getting started is simple. No technical knowledge required on your end.</p>
+
+    <div class="steps">
+      <div class="step reveal">
+        <div class="step-num">01</div>
+        <h3>Book a Free Call</h3>
+        <p>We talk through your business, your current tech setup, and any pain points. No pressure, no jargon.</p>
+      </div>
+      <div class="step reveal" style="animation-delay:0.15s;">
+        <div class="step-num">02</div>
+        <h3>We Audit Your Setup</h3>
+        <p>We review your website, security posture, and systems to identify gaps and put together your plan.</p>
+      </div>
+      <div class="step reveal" style="animation-delay:0.3s;">
+        <div class="step-num">03</div>
+        <h3>We Handle Everything</h3>
+        <p>You get onboarded, we get to work. Monthly support, proactive monitoring, and a tech partner you can actually reach.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- FAQ -->
+<section id="faq" class="section">
+  <div class="container">
+    <h2 class="h2">Frequently Asked Questions</h2>
+    <p class="p-center">Everything you need to know before getting started.</p>
+
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          What if I need something outside my package?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          We'll let you know upfront if a request falls outside your plan. Most things are covered, but for larger projects we'll send a quick quote before doing anything. No surprise charges.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          How do I get started?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          Book a free consultation call. We'll talk through your business, your current setup, and figure out which package fits best. From there, onboarding takes less than a week.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Do I need to sign a long-term contract?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          No long-term contracts. Packages are month-to-month so you're never locked in. That said, most clients stay because the support speaks for itself.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          What kind of businesses do you work with?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          Primarily small businesses, service providers, consultants, and entrepreneurs who need reliable tech support without hiring a full IT team.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          How fast do you respond to issues?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          Starter clients hear back within 24 hours. Pro clients get same-day response. Premium clients are always first in line, urgent issues get immediate attention.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 
   <!-- CONTACT -->
   <section id="contact" class="section">
@@ -1337,6 +1520,23 @@ const revealObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.15 });
 
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+
+    // FAQ accordion
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  });
+});
   </script>
 </body>
 </html>
